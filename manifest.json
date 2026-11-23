@@ -1,0 +1,18 @@
+{
+  "name": "શ્રીજી ના સાજ - Shreeji Na Saaj",
+  "short_name": "Shreeji Saaj",
+  "description": "ભગવાના વસ્ત્રો, સાજ ઓર્ડર અને નફો-નુકસાન હિસાબ મેનેજમેન્ટ",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

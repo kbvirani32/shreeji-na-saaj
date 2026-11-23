@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>શ્રીજી ના સાજ | Shreeji Na Saaj</title>
+  
+  <!-- PWA meta tags -->
+  <meta name="theme-color" content="#09090b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Shreeji Na Saaj">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="logo.png">
+  
+  <!-- Google Fonts for all Themes, Languages and Font Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@500;700&family=Anek+Gujarati:wght@500;700&family=Baloo+2:wght@600;700&family=Baloo+Bhai+2:wght@600;700&family=Hind:wght@500;700&family=Hind+Vadodara:wght@500;700&family=Noto+Serif+Gujarati:wght@600;700&family=Outfit:wght@500;700&family=Philosopher:wght@400;700&family=Playfair+Display:wght@600;700;900&family=Plus+Jakarta+Sans:wght@500;700&family=Quicksand:wght@600;700&family=Rasa:wght@600;700&family=Rozha+One&family=Yatra+One&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            royal: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+              950: '#082f49',
+            },
+            saffron: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- FontAwesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-shrinathji-gold font-serif lang-gu bg-slate-50 text-slate-800 min-h-screen flex flex-col antialiased selection:bg-amber-100 selection:text-amber-900 transition-colors duration-300">
+
+  <!-- ========================================== -->
+  <!-- GLOBAL SVG SPRITE ICONS DEFINITIONS        -->
+  <!-- ========================================== -->
+  <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="icon-bars" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></symbol>
+      <symbol id="icon-users" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 3s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></symbol>
+      <symbol id="icon-scissors" viewBox="0 0 24 24"><path d="M9.64 7.64c.23-.5.36-1.05.36-1.64 0-2.21-1.79-4-4-4S2 3.79 2 6s1.79 4 4 4c.59 0 1.14-.13 1.64-.36L10 12l-2.36 2.36C7.14 14.13 6.59 14 6 14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4c0-.59-.13-1.14-.36-1.64L12 14l7 7h3v-1L9.64 7.64zM6 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm0 12c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm9.64-9.64L22 4V3h-3l-7.36 7.36 4 4z"/></symbol>
+      <symbol id="icon-boxes" viewBox="0 0 24 24"><path d="M21 16.5l-9 5.25-9-5.25V7.5L12 2.25l9 5.25v9zM12 4.15L5.04 8.2 12 12.26l6.96-4.06L12 4.15zm-7 5.5v6.52l6 3.5V13.15L5 9.65zm14 0l-6 3.5v6.52l6-3.5V9.65z"/></symbol>
+      <symbol id="icon-gear" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></symbol>
+      <symbol id="icon-mobile" viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14zm-5 1c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></symbol>
+      <symbol id="icon-file-csv" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></symbol>
+      <symbol id="icon-download" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></symbol>
+      <symbol id="icon-upload" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></symbol>
+      <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></symbol>
+      <symbol id="icon-edit" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></symbol>
+      <symbol id="icon-trash" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></symbol>
+      <symbol id="icon-check-circle" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></symbol>
+      <symbol id="icon-lock" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></symbol>
+      <symbol id="icon-eye" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></symbol>
+      <symbol id="icon-whatsapp" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.17 8.17 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.24 8.24-1.45 0-2.86-.38-4.11-1.1l-.29-.17-3.11.82.83-3.03-.19-.31a8.217 8.217 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.24-.75-.67-1.26-1.49-1.4-1.74-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.78.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29z"/></symbol>
+      <symbol id="icon-qrcode" viewBox="0 0 24 24"><path d="M3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm13-2h3v2h-3v-2zm-3 2h3v3h-3v-3zm3 3h3v3h-3v-3zm-3 2h2v2h-2v-2zm-2-4h2v2h-2v-2zm4-2h2v2h-2v-2z"/></symbol>
+      <symbol id="icon-print" viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></symbol>
+      <symbol id="icon-calendar" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></symbol>
+      <symbol id="icon-chart-pie" viewBox="0 0 24 24"><path d="M11 2v20c-5.07-.5-9-4.79-9-10s3.93-9.5 9-10zm2 0v8.99L21.99 11C21.47 5.92 17.08 2 13 2zm0 11.01V22c4.08 0 8.47-3.92 8.99-9H13z"/></symbol>
+      <symbol id="icon-coins" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 4.24 2 7s4.48 5 10 5 10-2.24 10-5-4.48-5-10-5zm0 12c-5.52 0-10-2.24-10-5v3c0 2.76 4.48 5 10 5s10-2.24 10-5V9c0 2.76-4.48 5-10 5zm0 5c-5.52 0-10-2.24-10-5v3c0 2.76 4.48 5 10 5s10-2.24 10-5v-3c0 2.76-4.48 5-10 5z"/></symbol>
+      <symbol id="icon-rupee" viewBox="0 0 24 24"><path d="M13.66 7C13.1 5.82 11.9 5 10.5 5H6V3h12V1H6a2 2 0 0 0-2 2v2H2v2h2v4H2v2h2.24c.73 2.84 3.07 5 6.26 5h.5l5.5 6h3l-6-6.54C17.22 14.53 18 12.87 18 11h-7.5c-1.93 0-3.5-1.57-3.5-3.5S8.57 4 10.5 4h3.16z"/></symbol>
+      <symbol id="icon-bell" viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/></symbol>
+      <symbol id="icon-palette" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 3.58 8 8 8 1.1 0 2-.9 2-2 0-.52-.2-1-.55-1.35-.34-.36-.55-.86-.55-1.4 0-1.1.9-2 2-2h2.4c3.31 0 6-2.69 6-6 0-5.52-4.48-9.25-9.3-9.25zm-5.5 9.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3-4C8.67 7.5 8 6.83 8 6s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm5 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3 4c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></symbol>
+      <symbol id="icon-font" viewBox="0 0 24 24"><path d="M9.93 13.5h4.14L12 7.98zM20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-4.05 16.5l-1.14-3H9.17l-1.12 3H5.96l5.11-13h1.86l5.11 13h-2.09z"/></symbol>
+      <symbol id="icon-info" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></symbol>
+      <symbol id="icon-vest-patches" viewBox="0 0 24 24"><path d="M12 2c-1.1 0-2 .9-2 2v2H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-4V4c0-1.1-.9-2-2-2zm0 6c1.1 0 2-.9 2-2h2v12H8V6h2c0 1.1.9 2 2 2z"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- TOP DEVOTIONAL & BRAND HEADER -->
+  
+  <!-- TOP DEVOTIONAL & BRAND HEADER -->
+  <header class="bg-gradient-to-r from-royal-950 via-royal-900 to-slate-900 text-white shadow-lg sticky top-0 z-30 border-b-2 border-amber-500/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Auspicious Shlok Bar, Only Icons for Themes & Fonts, and Language Selector -->
+      <div class="py-1.5 border-b border-white/10 flex items-center justify-between text-xs text-amber-300 font-medium tracking-wide">
+        <span class="hidden sm:inline" id="headerShlokLeft">॥ શ્રી ગોપીજનવલ્લભાય નમઃ ॥</span>
+        <span class="mx-auto sm:mx-0 font-semibold" id="headerShlokMain">॥ શ્રી કૃષ્ણઃ શરણં મમ ॥ શ્રીજી ના સાજ વ્યવસ્થાપન</span>
+        
+        <div class="flex items-center space-x-2">
+          
+          <!-- Real-Time Cloud Sync Indicator -->
+          <button onclick="triggerManualSync()" id="headerSyncBtn" class="px-2.5 py-1 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-400/40 flex items-center space-x-1.5 transition active:scale-95 text-[11px] font-bold shadow-sm" title="લાઇવ મોબાઇલ & PC સિંક (Real-time Sync)">
+            <span id="syncDot" class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span id="syncText" data-i18n="lbl_sync_active">સિંક સક્રિય</span>
+          </button>
+          
+          <!-- Theme Dropdown Trigger (ICON ONLY) -->
+          <div class="relative" id="themeDropdownWrapper">
+            <button onclick="toggleThemeDropdown(event)" id="themeIconBtn" class="w-8 h-8 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-400/40 flex items-center justify-center transition active:scale-95 shadow-sm" title="Themes">
+              <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 3.58 8 8 8 1.1 0 2-.9 2-2 0-.52-.2-1-.55-1.35-.34-.36-.55-.86-.55-1.4 0-1.1.9-2 2-2h2.4c3.31 0 6-2.69 6-6 0-5.52-4.48-9.25-9.3-9.25zm-5.5 9.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3-4C8.67 7.5 8 6.83 8 6s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm5 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3 4c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+            </button>
+            
+            <!-- Theme Dropdown Popover Menu -->
+            <div id="themeDropdownMenu" class="hidden absolute right-0 mt-2 w-72 sm:w-80 bg-white rounded-2xl shadow-2xl border border-slate-200 z-50 overflow-hidden animate-in fade-in zoom-in-95 duration-150 p-2 text-slate-800">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Font Dropdown Trigger (ICON ONLY) -->
+          <div class="relative" id="fontDropdownWrapper">
+            <button onclick="toggleFontDropdown(event)" id="fontIconBtn" class="w-8 h-8 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-400/40 flex items-center justify-center transition active:scale-95 shadow-sm" title="Fonts">
+              <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M9.93 13.5h4.14L12 7.98zM20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-4.05 16.5l-1.14-3H9.17l-1.12 3H5.96l5.11-13h1.86l5.11 13h-2.09z"/></svg>
+            </button>
+            
+            <!-- Font Dropdown Popover Menu -->
+            <div id="fontDropdownMenu" class="hidden absolute right-0 mt-2 w-72 sm:w-80 bg-white rounded-2xl shadow-2xl border border-slate-200 z-50 overflow-hidden animate-in fade-in zoom-in-95 duration-150 p-2 text-slate-800">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- 3-Way Pure Language Selector -->
+          <div class="flex items-center space-x-1 bg-black/40 p-0.5 rounded-xl border border-amber-500/30">
+            <button onclick="setLanguage('gu')" id="langBtn-gu" class="px-2.5 py-1 rounded-lg text-xs font-bold transition active-lang">
+              ગુજરાતી
+            </button>
+            <button onclick="setLanguage('mr')" id="langBtn-mr" class="px-2.5 py-1 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition">
+              मराठी
+            </button>
+            <button onclick="setLanguage('en')" id="langBtn-en" class="px-2.5 py-1 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition">
+              English
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Navigation Bar with User-Uploaded Shrinathji Logo -->
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo & Title (Click navigates to dashboard, does NOT popup preview image per user request) -->
+        <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('dashboard')">
+          <div class="relative w-11 h-11 rounded-xl overflow-hidden shadow-md ring-2 ring-amber-400/70 flex-shrink-0 bg-slate-950 flex items-center justify-center">
+            <img src="logo.png" alt="શ્રીજી ના સાજ" class="w-full h-full object-cover object-top">
+          </div>
+          <div>
+            <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white flex items-center gap-2">
+              <span id="brandTitle">શ્રીજી ના સાજ</span>
+            </h1>
+            <p class="text-xs text-amber-200/90 hidden sm:block font-medium leading-tight" data-i18n="tagline">Weaving devotion in every thread</p>
+          </div>
+        </div>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center space-x-1 lg:space-x-1.5">
+          <button onclick="switchTab('dashboard')" id="nav-dashboard" class="nav-btn active px-3 py-2 rounded-xl text-xs lg:text-sm font-semibold flex items-center gap-1.5 transition whitespace-nowrap">
+            <svg class="w-4 h-4 text-amber-400 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M11 2v20c-5.07-.5-9-4.79-9-10s3.93-9.5 9-10zm2 0v8.99H22c-.47-4.74-4.24-8.52-9-8.99zm0 11.01V22c4.76-.47 8.53-4.25 9-8.99H13z"/></svg>
+            <span data-i18n="nav_dashboard">ડેશબોર્ડ</span>
+          </button>
+          <button onclick="switchTab('orders')" id="nav-orders" class="nav-btn px-3 py-2 rounded-xl text-xs lg:text-sm font-semibold flex items-center gap-1.5 transition whitespace-nowrap">
+            <svg class="w-4 h-4 text-amber-400 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-1.5 1.5-2.5 3-4 3H4v6l3 1v10h10V12l3-1V5h-4c-1.5 0-2.5-1.5-4-3zm0 4c.83 0 1.5.67 1.5 1.5S12.83 9 12 9s-1.5-.67-1.5-1.5S11.17 6 12 6zm-3 8h6v2H9v-2zm0 3h6v2H9v-2z"/></svg>
+            <span data-i18n="nav_orders">ઓર્ડર્સ</span>
+            <span id="badge-pending-count" class="ml-1 px-1.5 py-0.2 bg-amber-500 text-slate-950 rounded-full text-[10px] font-bold">0</span>
+          </button>
+          <button onclick="switchTab('pnl')" id="nav-pnl" class="nav-btn px-3 py-2 rounded-xl text-xs lg:text-sm font-semibold flex items-center gap-1.5 transition whitespace-nowrap">
+            <svg class="w-4 h-4 text-amber-400 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 4.24 2 7v10c0 2.76 4.48 5 10 5s10-2.24 10-5V7c0-2.76-4.48-5-10-5zm0 2c4.41 0 8 1.57 8 3s-3.59 3-8 3-8-1.57-8-3 3.59-3 8-3zm8 7.37c-.98.92-2.88 1.63-5.22 1.93-1.07.14-2.18.2-2.78.2-.6 0-1.71-.06-2.78-.2C6.88 12.99 4.98 12.28 4 11.37V9.22C5.9 10.33 8.78 11 12 11s6.1-.67 8-1.78v2.15zm0 4.15c-.98.92-2.88 1.63-5.22 1.93-1.07.14-2.18.2-2.78.2-.6 0-1.71-.06-2.78-.2C6.88 17.14 4.98 16.43 4 15.52V13.37c1.9 1.11 4.78 1.78 8 1.78s6.1-.67 8-1.78v2.15zm0 4.15c-.98.92-2.88 1.63-5.22 1.93-1.07.14-2.18.2-2.78.2-.6 0-1.71-.06-2.78-.2C6.88 21.29 4.98 20.58 4 19.67V17.52c1.9 1.11 4.78 1.78 8 1.78s6.1-.67 8-1.78v2.15z"/></svg>
+            <span data-i18n="nav_pnl">નફો-નુકસાન</span>
+          </button>
+          <button onclick="switchTab('parties')" id="nav-parties" class="nav-btn px-3 py-2 rounded-xl text-xs lg:text-sm font-semibold flex items-center gap-1.5 transition whitespace-nowrap">
+            <svg class="w-4 h-4 text-amber-400 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 3s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            <span data-i18n="nav_parties">ગ્રાહકો</span>
+          </button>
+          <button onclick="switchTab('karigars')" id="nav-karigars" class="nav-btn px-3 py-2 rounded-xl text-xs lg:text-sm font-semibold flex items-center gap-1.5 transition whitespace-nowrap">
+            <svg class="w-4 h-4 text-amber-400 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M9.64 7.64c.23-.5.36-1.05.36-1.64 0-2.21-1.79-4-4-4S2 3.79 2 6s1.79 4 4 4c.59 0 1.14-.13 1.64-.36L10 12l-2.36 2.36C7.14 14.13 6.59 14 6 14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4c0-.59-.13-1.14-.36-1.64L12 14l7 7h3v-1L9.64 7.64zM6 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm0 12c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm9.64-9.64L22 4V3h-3l-7.36 7.36 4 4z"/></svg>
+            <span data-i18n="nav_karigars">કારીગરો</span>
+          </button>
+          <button onclick="switchTab('stock')" id="nav-stock" class="nav-btn px-3 py-2 rounded-xl text-xs lg:text-sm font-semibold flex items-center gap-1.5 transition whitespace-nowrap">
+            <svg class="w-4 h-4 text-amber-400 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16.5l-9 5.25-9-5.25V7.5L12 2.25l9 5.25v9zM12 4.15L5.04 8.2 12 12.26l6.96-4.06L12 4.15zm-7 5.5v6.52l6 3.5V13.15L5 9.65zm14 0l-6 3.5v6.52l6-3.5V9.65z"/></svg>
+            <span data-i18n="nav_stock">સ્ટોક</span>
+            <span id="badge-low-stock-count" class="hidden ml-1 px-1.5 py-0.2 bg-rose-500 text-white rounded-full text-[10px] font-bold flex-shrink-0">!</span>
+          </button>
+          <button onclick="switchTab('settings')" id="nav-settings" class="nav-btn px-3 py-2 rounded-xl text-xs lg:text-sm font-semibold flex items-center gap-1.5 transition whitespace-nowrap">
+            <svg class="w-4 h-4 text-slate-400 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+            <span data-i18n="nav_settings">સેટિંગ્સ</span>
+          </button>
+        </nav>
+
+        <!-- Right Quick Actions -->
+        <div class="flex items-center space-x-2">
+          <button onclick="openNewOrderModal()" class="px-3.5 sm:px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs sm:text-sm shadow-md flex items-center gap-1.5 active:scale-95 transition">
+            <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+            <span data-i18n="btn_new_order">+ નવો ઓર્ડર</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN APPLICATION CONTAINER -->
+  <main class="flex-grow max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-5 pb-24 md:pb-10">
+
+    <!-- URGENT / TODAY DELIVERY ALERT BANNER -->
+    <div id="urgentAlertContainer" class="hidden mb-5">
+      <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl shadow-sm flex items-start justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="text-amber-600 text-2xl flex-shrink-0 animate-bounce">
+            <svg class="w-5 h-5 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-amber-900" data-i18n="urgent_alert_title">તાકીદના ઓર્ડર એલર્ટ</h4>
+            <p class="text-xs text-amber-700 mt-0.5" id="urgentAlertDesc">આજે અથવા નજીકના દિવસોમાં ડિલિવરી કરવાના ઓર્ડર્સ બાકી છે.</p>
+          </div>
+        </div>
+        <button onclick="filterUpcomingDeliveries()" class="px-3 py-1 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold rounded-lg text-xs shadow-sm whitespace-nowrap" data-i18n="btn_view">
+          જુઓ
+        </button>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 1: DASHBOARD & SUMMARY -->
+    <!-- ========================================== -->
+    <section id="tab-dashboard" class="tab-content space-y-6">
+      
+      <!-- Date Filter Bar & Daily Rotating Shrinathji Suvichar -->
+      <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center space-x-3">
+          <div class="w-11 h-11 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-600 flex items-center justify-center text-xl font-bold flex-shrink-0 shadow-sm">
+            <svg class="w-5 h-5 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .55-.45 1-1 1H6c-.55 0-1-.45-1-1v-1h14v1z"/></svg>
+          </div>
+          <div>
+            <div class="text-[11px] font-black text-amber-500 tracking-wider uppercase">॥ શ્રી ગોપીજનવલ્લભાય નમઃ ॥ શ્રીજી ના સાજ</div>
+            <h2 class="text-base sm:text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+              <span data-i18n="dashboard_summary">વ્યાપારી કમાન્ડ સેન્ટર & સમરી</span>
+            </h2>
+            <div class="flex items-center gap-2.5 flex-wrap mt-1">
+              <div class="text-xs font-semibold text-slate-500 flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-amber-400 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+                <span id="dashLiveDateDisplay">...</span>
+              </div>
+              <span class="text-slate-600 hidden sm:inline">•</span>
+              <!-- Daily Rotating Shrinathji Suvichar -->
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-400/30 text-amber-300 text-xs font-semibold shadow-xs">
+                <span>🪷</span>
+                <span id="dailySuvicharText">પ્રભુ સેવા એ જ આપણું પરમ સૌભાગ્ય છે — શુદ્ધતા, ભાવ અને સમયસર સેવા.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2.5">
+          <!-- Date Filter Segmented Control -->
+          <div class="inline-flex rounded-xl bg-slate-100/60 p-1 border border-slate-200/50 text-xs sm:text-sm">
+            <button onclick="setDashboardDateFilter('all')" class="dash-filter-btn px-3 py-1.5 rounded-lg font-bold active bg-white text-royal-950 shadow-sm transition" data-filter="all" data-i18n="filter_all">તમામ</button>
+            <button onclick="setDashboardDateFilter('today')" class="dash-filter-btn px-3 py-1.5 rounded-lg font-bold text-slate-600 hover:text-slate-900 transition" data-filter="today" data-i18n="filter_today">આજે</button>
+            <button onclick="setDashboardDateFilter('week')" class="dash-filter-btn px-3 py-1.5 rounded-lg font-bold text-slate-600 hover:text-slate-900 transition" data-filter="week" data-i18n="filter_week">આ અઠવાડિયે</button>
+            <button onclick="setDashboardDateFilter('month')" class="dash-filter-btn px-3 py-1.5 rounded-lg font-bold text-slate-600 hover:text-slate-900 transition" data-filter="month" data-i18n="filter_month">આ મહિને</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Operational Production & Delivery KPI Metric Cards -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+        
+        <!-- KPI 1: Total Active Orders -->
+        <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 hover:border-amber-400 transition group cursor-pointer flex flex-col justify-between" onclick="switchTab('orders')">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider" data-i18n="kpi_total_orders">કુલ ઓર્ડર</span>
+            <div class="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-sm group-hover:scale-110 transition">
+              <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16.5l-9 5.25-9-5.25V7.5L12 2.25l9 5.25v9zM12 4.15L5.04 8.2 12 12.26l6.96-4.06L12 4.15zm-7 5.5v6.52l6 3.5V13.15L5 9.65zm14 0l-6 3.5v6.52l6-3.5V9.65z"/></svg>
+            </div>
+          </div>
+          <div class="mt-2.5">
+            <span class="text-2xl font-black text-slate-900" id="dashTotalOrders">0</span>
+            <span class="text-xs text-slate-400 ml-1 font-medium" data-i18n="unit_orders">ઓર્ડર્સ</span>
+          </div>
+          <div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-500">
+            <span class="text-indigo-600 font-bold">🧵 <span id="dashWithMaterialCount">0</span> <span data-i18n="our_material">આપણું</span></span>
+            <span class="text-amber-700 font-bold">✂️ <span id="dashWithoutMaterialCount">0</span> <span data-i18n="party_material">પાર્ટી કાપડ</span></span>
+          </div>
+        </div>
+
+        <!-- KPI 2: In Production / Cutting -->
+        <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 hover:border-amber-400 transition group cursor-pointer flex flex-col justify-between" onclick="filterOrdersByStatus('pending')">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-amber-500 uppercase tracking-wider flex items-center gap-1.5" data-i18n="kpi_pending_orders">
+              કામ ચાલુ <span class="pulse-amber"></span>
+            </span>
+            <div class="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-sm group-hover:scale-110 transition">
+              <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.2 3.1.8-1.2-4.5-2.7V7z"/></svg>
+            </div>
+          </div>
+          <div class="mt-2.5">
+            <span class="text-2xl font-black text-amber-500" id="dashPendingOrders">0</span>
+            <span class="text-xs text-amber-600 ml-1 font-semibold" data-i18n="status_in_progress">સિલાઈ/કામ ચાલુ</span>
+          </div>
+          <div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+            <span class="text-slate-500 font-semibold"><span id="dashInCuttingCount">0</span> <span data-i18n="status_cutting">કટિંગ</span></span>
+            <span class="text-blue-500 font-bold">✨ <span id="dashInStitchingCount">0</span> <span data-i18n="status_stitching">સિલાઈ</span></span>
+          </div>
+        </div>
+
+        <!-- KPI 3: Ready for Delivery -->
+        <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 hover:border-cyan-400 transition group cursor-pointer flex flex-col justify-between" onclick="filterOrdersByStatus('ready')">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-cyan-400 uppercase tracking-wider" data-i18n="status_ready_title">તૈયાર સાજ</span>
+            <div class="w-8 h-8 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-sm group-hover:scale-110 transition">
+              <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H6v-1c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1z"/></svg>
+            </div>
+          </div>
+          <div class="mt-2.5">
+            <span class="text-2xl font-black text-cyan-400" id="dashReadyCount">0</span>
+            <span class="text-xs text-cyan-500 ml-1 font-semibold" data-i18n="status_ready">ડિલિવરી તૈયાર</span>
+          </div>
+          <div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] text-cyan-400 font-bold">
+            <span data-i18n="lbl_ready_handover">ગ્રાહકને સુપરત માટે તૈયાર</span>
+            <span>✓</span>
+          </div>
+        </div>
+
+        <!-- KPI 4: Completed Orders -->
+        <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 hover:border-emerald-400 transition group cursor-pointer flex flex-col justify-between" onclick="filterOrdersByStatus('completed')">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-wider" data-i18n="kpi_completed_orders">પૂર્ણ ઓર્ડર</span>
+            <div class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm group-hover:scale-110 transition">
+              <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+          </div>
+          <div class="mt-2.5">
+            <span class="text-2xl font-black text-emerald-400" id="dashCompletedOrders">0</span>
+            <span class="text-xs text-emerald-500 ml-1 font-semibold" data-i18n="status_completed">પૂર્ણ થયેલ</span>
+          </div>
+          <div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] text-emerald-400 font-bold">
+            <span><span data-i18n="rate">દર</span>: <span id="dashCompletionRate">100%</span></span>
+            <span data-i18n="delivered_check">સુપરત ✓</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Operations Command Grid: Urgent Deliveries & Karigar Pipeline -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Left (2 Cols): Urgent Delivery Schedule (Next 7 Days) -->
+        <div class="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-slate-200 p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-3.5 border-b border-slate-100 mb-4">
+              <div class="flex items-center space-x-2.5">
+                <div class="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-base">
+                  <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.2 3.1.8-1.2-4.5-2.7V7z"/></svg>
+                </div>
+                <div>
+                  <h3 class="text-base font-black text-slate-800" data-i18n="upcoming_deliveries_title">તાકીદની ડિલિવરી સમયમર્યાદા</h3>
+                  <p class="text-[11px] text-slate-500">આગામી ૭ દિવસમાં પહોંચાડવાના ભગવાનના વસ્ત્રો અને સાજ</p>
+                </div>
+              </div>
+              <span class="text-xs px-3 py-1 bg-amber-100 text-amber-900 rounded-full font-bold shadow-xs" id="upcomingCountBadge">0 ઓર્ડર</span>
+            </div>
+
+            <div id="upcomingOrdersList" class="space-y-3">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs text-slate-500">
+            <span id="dashDeliveryTipText" data-i18n="delivery_tip">💡 1-ક્લિકથી ગ્રાહકને વોટ્સએપ પર ટ્રાયલ/ડિલિવરી મેસેજ મોકલી શકાય છે</span>
+            <button onclick="switchTab('orders')" class="text-royal-800 font-bold hover:underline" data-i18n="btn_view_all_orders">બધા ઓર્ડર્સ જુઓ →</button>
+          </div>
+        </div>
+
+        <!-- Right (1 Col): Artisan Workload Pipeline -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-3.5 border-b border-slate-100 mb-4">
+              <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-base">
+                  <svg class="w-4 h-4 text-amber-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M9.64 7.64c.23-.5.36-1.05.36-1.64 0-2.21-1.79-4-4-4S2 3.79 2 6s1.79 4 4 4c.59 0 1.14-.13 1.64-.36L10 12l-2.36 2.36C7.14 14.13 6.59 14 6 14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4c0-.59-.13-1.14-.36-1.64L12 14l7 7h3v-1L9.64 7.64zM6 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm0 12c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm9.5-8c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                </div>
+                <div>
+                  <h3 class="text-base font-black text-slate-800" data-i18n="artisan_pipeline_title">કારીગરોનો કાર્યભાર</h3>
+                  <p class="text-[11px] text-slate-500">ચાલુ ઓર્ડર્સની સોંપણી અને પ્રગતિ</p>
+                </div>
+              </div>
+            </div>
+
+            <div id="artisanPipelineContainer" class="space-y-3">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-100 mt-4">
+            <button onclick="openNewOrderModal()" class="w-full py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition">
+              <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+              <span data-i18n="btn_new_order">+ નવો ઓર્ડર સોંપો</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+<section id="tab-orders" class="tab-content hidden space-y-5">
+      
+      <!-- Top Action Bar -->
+      <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 space-y-3">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+          
+          <!-- Search Box -->
+          <div class="relative flex-grow max-w-lg">
+            <span class="absolute left-3.5 top-3.5 text-slate-400"><svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+            <input type="text" id="orderSearchInput" oninput="renderOrdersList()" placeholder="ઓર્ડર નં, પાર્ટીનું નામ, ફોન કે સ્વરૂપ શોધો..." class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition">
+          </div>
+
+          <!-- Quick Filter Buttons -->
+          <div class="flex flex-wrap items-center gap-2">
+            <!-- Status Dropdown -->
+            <select id="filterOrderStatus" onchange="renderOrdersList()" class="px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500">
+              <!-- Dynamic -->
+            </select>
+
+            <!-- Material Dropdown -->
+            <select id="filterOrderMaterial" onchange="renderOrdersList()" class="px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500">
+              <!-- Dynamic -->
+            </select>
+
+            <!-- New Order Button -->
+            <button onclick="openNewOrderModal()" class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold rounded-xl text-xs sm:text-sm shadow-sm flex items-center whitespace-nowrap">
+              <span data-i18n="btn_new_order">+ નવો ઓર્ડર</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Date Range Filter Row -->
+        <div class="flex flex-wrap items-center justify-between text-xs text-slate-500 pt-2 border-t border-slate-100 gap-2">
+          <div class="flex items-center space-x-2">
+            <span data-i18n="filter_date_label">તારીખ ફિલ્ટર:</span>
+            <input type="date" id="filterDateFrom" onchange="renderOrdersList()" class="px-2 py-1 bg-slate-50 border border-slate-200 rounded-lg text-xs">
+            <span data-i18n="filter_to">થી</span>
+            <input type="date" id="filterDateTo" onchange="renderOrdersList()" class="px-2 py-1 bg-slate-50 border border-slate-200 rounded-lg text-xs">
+            <button onclick="clearDateFilter()" class="text-royal-700 hover:underline font-semibold" data-i18n="btn_clear">ક્લિયર</button>
+          </div>
+          <div class="text-slate-600 font-medium">
+            <span data-i18n="total_results">કુલ પરિણામ</span>: <span id="ordersFilteredCount" class="font-bold text-slate-900">0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Orders Cards Grid -->
+      <div id="ordersGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="ordersEmptyState" class="hidden bg-white rounded-2xl p-12 text-center border border-dashed border-slate-300">
+        <div class="w-16 h-16 rounded-full bg-amber-50 text-amber-500 mx-auto flex items-center justify-center text-2xl mb-3">
+          <svg class="w-4 h-4 text-amber-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+        </div>
+        <h4 class="text-base font-bold text-slate-800" data-i18n="no_orders_found">કોઈ ઓર્ડર મળ્યો નથી</h4>
+        <p class="text-xs text-slate-500 mt-1 max-w-sm mx-auto" data-i18n="no_orders_desc">હજી સુધી કોઈ ઓર્ડર નોંધાયેલ નથી અથવા ફિલ્ટરમાં મેળ ખાતો નથી.</p>
+        <button onclick="openNewOrderModal()" class="mt-4 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-slate-950 rounded-xl text-xs font-bold inline-flex items-center gap-2">
+          <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+          <span data-i18n="btn_first_order">પ્રથમ ઓર્ડર ઉમેરો</span>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 3: PROFIT & LOSS (P&L) - CA CERTIFIED LEDGER -->
+    <!-- ========================================== -->
+    <section id="tab-pnl" class="tab-content hidden space-y-5">
+      <!-- Simplified P&L Header & Filter Toolbar -->
+      <div class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <div class="text-[11px] font-black text-amber-600 tracking-wider uppercase">॥ શ્રી ગોપીજનવલ્લભાય નમઃ ॥</div>
+          <h2 class="text-base sm:text-xl font-black text-slate-900 flex items-center gap-2">
+            <svg class="w-4 h-4 text-amber-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M11 2v20c-5.07-.5-9-4.79-9-10s3.93-9.5 9-10zm2 0v8.99H22c-.47-4.74-4.24-8.52-9-8.99zm0 11.01V22c4.76-.47 8.53-4.25 9-8.99H13z"/></svg>
+            <span data-i18n="pnl_title">નફો અને નુકસાન હિસાબ</span>
+          </h2>
+          <p class="text-xs font-medium text-slate-500" data-i18n="pnl_subtitle">ઓર્ડર આવક, કારીગર મજૂરી અને સામગ્રી ખર્ચનો સરળ હિસાબ</p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2.5">
+          <select id="pnlMonthFilter" onchange="renderPnL()" class="px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm font-bold focus:outline-none focus:ring-2 focus:ring-amber-500">
+            <option value="all" data-i18n="opt_all_time">તમામ સમયગાળો (All Time)</option>
+            <option value="this_month" data-i18n="opt_this_month">ચાલુ મહિનો (This Month)</option>
+            <option value="last_month" data-i18n="opt_last_month">ગયેલ મહિનો (Last Month)</option>
+            <option value="this_year" data-i18n="opt_this_year">ચાલુ વર્ષ (This Year)</option>
+          </select>
+          <button onclick="openNewExpenseModal()" class="px-3.5 py-2 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl text-xs sm:text-sm shadow-sm flex items-center gap-1.5 transition active:scale-95">
+            <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            <span data-i18n="btn_new_expense">+ નવો ખર્ચ</span>
+          </button>
+          <button onclick="exportPnLCSV()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl text-xs sm:text-sm flex items-center gap-1.5 transition">
+            <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+            <span data-i18n="btn_export_csv">CSV ડાઉનલોડ</span>
+          </button>
+        </div>
+      </div>
+
+      
+      <!-- Executive Financial Flow & Collection Efficiency Progress Bar (Moved to P&L per User Request) -->
+      <div class="bg-gradient-to-r from-royal-950 via-royal-900 to-slate-900 text-white p-5 rounded-2xl shadow-md border-2 border-amber-500/40 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-lg">
+              ₹
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white flex items-center gap-2">
+                <span data-i18n="financial_flow_title">નાણાકીય પ્રવાહ અને વસૂલાત કાર્યક્ષમતા</span>
+              </h3>
+              <p class="text-xs text-amber-200/80" data-i18n="financial_flow_desc">ગ્રાહકો પાસેથી જમા થયેલ રોકડ અને બાકી ઉઘરાણીનું જીવંત વિશ્લેષણ</p>
+            </div>
+          </div>
+          <div class="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-xs font-bold flex items-center gap-1.5">
+            <span id="dashRecoveryPercent">100%</span>
+            <span data-i18n="lbl_collected">વસૂલ</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex justify-between text-xs text-slate-300 font-semibold mb-1.5">
+            <span data-i18n="recovery_efficiency_label">વસૂલાત કાર્યક્ષમતા (Collected vs Pending)</span>
+            <span id="dashRecoveryPercentLabel" class="font-bold text-amber-400">100%</span>
+          </div>
+          <div class="w-full bg-slate-800 rounded-full h-3.5 overflow-hidden p-0.5 border border-slate-700">
+            <div id="dashRecoveryProgressBar" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full rounded-full transition-all duration-700" style="width: 100%"></div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 pt-1">
+          <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 flex flex-col justify-between">
+            <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider" data-i18n="lbl_cash_collected">જમા રોકડ / બેંક</span>
+            <div class="text-xl sm:text-2xl font-black text-emerald-400 mt-1">₹<span id="dashCashCollected">0</span></div>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 flex flex-col justify-between">
+            <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider" data-i18n="lbl_market_receivable">ગ્રાહક બાકી ઉઘરાણી</span>
+            <div class="text-xl sm:text-2xl font-black text-rose-400 mt-1">₹<span id="dashMarketReceivable">0</span></div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 4 Royal Financial Summary Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Card 1: Total Revenue -->
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-emerald-300 hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider" data-i18n="total_revenue">કુલ આવક</span>
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg">
+              <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"/></svg>
+            </div>
+          </div>
+          <div class="mt-3">
+            <div class="text-2xl sm:text-3xl font-black text-emerald-600">₹<span id="pnlTotalIncome">0</span></div>
+            <p class="text-xs text-slate-500 mt-1" data-i18n="revenue_desc">ઓર્ડર્સ પેટે કુલ બિલિંગ</p>
+          </div>
+          <div class="mt-3 pt-3 border-t border-slate-100 flex justify-between text-xs text-slate-600 font-medium">
+            <span><span data-i18n="lbl_received">જમા</span>: <b class="text-emerald-700">₹<span id="pnlCollectedIncome">0</span></b></span>
+            <span class="text-amber-700 font-bold"><span data-i18n="lbl_pending">બાકી</span>: ₹<span id="pnlPendingReceivable">0</span></span>
+          </div>
+        </div>
+
+        <!-- Card 2: Total Expenses -->
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-rose-300 hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider" data-i18n="total_expense">કુલ ખર્ચ</span>
+            <div class="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-lg">
+              <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>
+            </div>
+          </div>
+          <div class="mt-3">
+            <div class="text-2xl sm:text-3xl font-black text-rose-600">₹<span id="pnlTotalExpense">0</span></div>
+            <p class="text-xs text-slate-500 mt-1" data-i18n="expense_desc">કાપડ, સામગ્રી & મજૂરી ખર્ચ</p>
+          </div>
+          <div class="mt-3 pt-3 border-t border-slate-100 flex justify-between text-xs text-slate-600 font-medium">
+            <span><span data-i18n="lbl_karigar_cost">મજૂરી</span>: <b class="text-blue-700">₹<span id="pnlKarigarCost">0</span></b></span>
+            <span><span data-i18n="lbl_material_cost">સામગ્રી</span>: <b class="text-purple-700">₹<span id="pnlMaterialCost">0</span></b></span>
+          </div>
+        </div>
+
+        <!-- Card 3: Net Profit -->
+        <div class="bg-gradient-to-br from-royal-950 via-royal-900 to-slate-900 text-white p-5 rounded-2xl shadow-md border-2 border-amber-400 hover:shadow-lg transition">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-amber-300 uppercase tracking-wider" data-i18n="kpi_net_profit">ચોખ્ખો નફો</span>
+            <div class="w-10 h-10 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center text-lg font-black">
+              ₹
+            </div>
+          </div>
+          <div class="mt-3">
+            <div class="text-2xl sm:text-3xl font-black text-amber-400">₹<span id="pnlNetProfit">0</span></div>
+            <p class="text-xs text-slate-300 mt-1" data-i18n="net_profit_desc">ખર્ચ બાદ કરતા ચોખ્ખી બચત</p>
+          </div>
+          <div class="mt-3 pt-3 border-t border-royal-800 flex justify-between text-xs text-slate-300">
+            <span><span data-i18n="profit_margin">પ્રોફિટ માર્જિન</span>: <span id="pnlProfitMargin" class="font-bold text-amber-300">0%</span></span>
+            <span class="text-emerald-400 font-bold" id="pnlHealthStatus" data-i18n="status_profitable">નફાકારક</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Market Receivables -->
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-amber-300 hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider" data-i18n="market_dues_title">બજાર બાકી લેણાં</span>
+            <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-lg">
+              <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 4.24 2 7v10c0 2.76 4.48 5 10 5s10-2.24 10-5V7c0-2.76-4.48-5-10-5zm0 2c4.41 0 8 1.57 8 3s-3.59 3-8 3-8-1.57-8-3 3.59-3 8-3zm8 7.37c-.98.92-2.88 1.63-5.22 1.93-1.07.14-2.18.2-2.78.2-.6 0-1.71-.06-2.78-.2C6.88 12.99 4.98 12.28 4 11.37V9.22C5.9 10.33 8.78 11 12 11s6.1-.67 8-1.78v2.15z"/></svg>
+            </div>
+          </div>
+          <div class="mt-3">
+            <div class="text-2xl sm:text-3xl font-black text-amber-600">₹<span id="pnlPendingReceivableCard">0</span></div>
+            <p class="text-xs text-slate-500 mt-1" data-i18n="market_dues_desc">ગ્રાહકો પાસેથી ઉઘરાણી બાકી</p>
+          </div>
+          <div class="mt-3 pt-3 border-t border-slate-100 text-xs text-slate-600">
+            <span class="font-semibold text-slate-700" data-i18n="market_dues_action">ગ્રાહક ખાતાવહીમાં તપાસો →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Simple Visual Expense Distribution Bar -->
+      <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+            <svg class="w-4 h-4 text-amber-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+            <span data-i18n="expense_breakdown_title">ખર્ચનું સરળ વિભાજન</span>
+          </h3>
+          <span class="text-xs font-bold text-slate-500" id="pnlExpenseTotalText">કુલ: ₹0</span>
+        </div>
+
+        <div class="w-full h-3.5 bg-slate-100 rounded-full overflow-hidden flex shadow-inner">
+          <div id="barFabric" class="h-full bg-blue-500 transition-all duration-500" style="width: 25%" title="કાપડ"></div>
+          <div id="barKarigar" class="h-full bg-emerald-500 transition-all duration-500" style="width: 35%" title="કારીગર"></div>
+          <div id="barZari" class="h-full bg-amber-500 transition-all duration-500" style="width: 20%" title="ઝરી/મોતી"></div>
+          <div id="barOther" class="h-full bg-purple-500 transition-all duration-500" style="width: 20%" title="અન્ય/કુરિયર"></div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-xs">
+          <div class="flex items-center gap-2 p-2 rounded-xl bg-blue-50 border border-blue-200">
+            <div class="w-3 h-3 rounded-full bg-blue-500"></div>
+            <div>
+              <span class="text-slate-600 font-semibold" data-i18n="cat_fabric">કાપડ / સિલ્ક</span>
+              <div class="font-bold text-blue-700">₹<span id="pnlLegendFabric">0</span></div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 p-2 rounded-xl bg-emerald-50 border border-emerald-200">
+            <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+            <div>
+              <span class="text-slate-600 font-semibold" data-i18n="cat_karigar_labor">કારીગર મજૂરી</span>
+              <div class="font-bold text-emerald-700">₹<span id="pnlLegendKarigar">0</span></div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 p-2 rounded-xl bg-amber-50 border border-amber-200">
+            <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+            <div>
+              <span class="text-slate-600 font-semibold" data-i18n="cat_zari">ઝરી / મોતી / લેસ</span>
+              <div class="font-bold text-amber-700">₹<span id="pnlLegendZari">0</span></div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 p-2 rounded-xl bg-purple-50 border border-purple-200">
+            <div class="w-3 h-3 rounded-full bg-purple-500"></div>
+            <div>
+              <span class="text-slate-600 font-semibold" data-i18n="cat_other">કુરિયર & અન્ય</span>
+              <div class="font-bold text-purple-700">₹<span id="pnlLegendOther">0</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Clean Expense Ledger (રોજમેળ) -->
+      <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h3 class="text-base font-bold text-slate-800 flex items-center gap-2">
+              <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+              <span data-i18n="expense_ledger_title">ખર્ચ રોજમેળ (Expense Records)</span>
+            </h3>
+            <p class="text-xs text-slate-500" data-i18n="expense_ledger_desc">દૈનિક થયેલા ખર્ચની વિગતવાર નોંધ</p>
+          </div>
+
+          <!-- Category Filter Pills -->
+          <div class="flex flex-wrap items-center gap-1.5" id="expenseFilterContainer">
+            <button onclick="filterExpensesByCategory('all')" id="expFilterBtn-all" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-500 text-slate-950 transition">
+              <span data-i18n="filter_all">તમામ</span>
+            </button>
+            <button onclick="filterExpensesByCategory('fabric')" id="expFilterBtn-fabric" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
+              <span data-i18n="cat_fabric">કાપડ</span>
+            </button>
+            <button onclick="filterExpensesByCategory('karigar_labor')" id="expFilterBtn-karigar_labor" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
+              <span data-i18n="cat_karigar_labor">કારીગર</span>
+            </button>
+            <button onclick="filterExpensesByCategory('zari_lace')" id="expFilterBtn-zari_lace" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
+              <span data-i18n="cat_zari">ઝરી/મોતી</span>
+            </button>
+            <button onclick="filterExpensesByCategory('courier')" id="expFilterBtn-courier" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
+              <span data-i18n="cat_courier">કુરિયર</span>
+            </button>
+            <button onclick="filterExpensesByCategory('other')" id="expFilterBtn-other" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
+              <span data-i18n="cat_other">અન્ય</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto rounded-xl border border-slate-200">
+          <table class="w-full text-xs text-left border-collapse">
+            <thead class="bg-slate-50 text-slate-700 font-bold border-b border-slate-200 uppercase tracking-wider">
+              <tr>
+                <th class="py-2.5 px-3" data-i18n="th_date">તારીખ</th>
+                <th class="py-2.5 px-3" data-i18n="th_description">ખર્ચની વિગત</th>
+                <th class="py-2.5 px-3" data-i18n="th_category">કેટેગરી</th>
+                <th class="py-2.5 px-3" data-i18n="th_payee">કારીગર / વેપારી</th>
+                <th class="py-2.5 px-3" data-i18n="th_payment_mode">પદ્ધતિ</th>
+                <th class="py-2.5 px-3 text-right" data-i18n="th_amount">રકમ (₹)</th>
+                <th class="py-2.5 px-3 text-center" data-i18n="th_actions">એક્શન</th>
+              </tr>
+            </thead>
+            <tbody id="expensesTableBody" class="divide-y divide-slate-100 text-slate-700 font-medium">
+              <!-- Populated dynamically by renderPnL() -->
+            </tbody>
+          </table>
+        </div>
+
+        <div id="expensesEmptyState" class="hidden py-8 text-center text-slate-400 text-xs" data-i18n="expenses_empty_desc">
+          કોઈ ખર્ચ નોંધાયેલ નથી. "+ નવો ખર્ચ" બટન દબાવીને નોંધણી કરો.
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 4: PARTIES (CUSTOMERS) -->
+    <!-- ========================================== -->
+    <section id="tab-parties" class="tab-content hidden space-y-5">
+      
+      <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <h2 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+            <svg class="icon w-5 h-5 text-royal-700"><use href="#icon-users"></use></svg>
+            <span data-i18n="parties_title">ગ્રાહકો / પાર્ટી યાદી</span>
+          </h2>
+          <p class="text-xs text-slate-500" data-i18n="parties_subtitle">દરેક ગ્રાહકના કુલ ઓર્ડર, બાકી રકમ અને સીધો સંપર્ક</p>
+        </div>
+
+        <div class="flex items-center gap-2 flex-wrap">
+          <div class="relative max-w-xs w-full">
+            <svg class="icon w-3.5 h-3.5 absolute left-3 top-3 text-slate-400"><use href="#icon-search"></use></svg>
+            <input type="text" id="partySearchInput" oninput="renderPartiesList()" placeholder="પાર્ટીનું નામ કે ફોન શોધો..." class="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+          </div>
+          <button onclick="openNewCustomerModal()" class="px-4 py-2 bg-royal-900 hover:bg-royal-800 text-white font-bold rounded-xl text-xs sm:text-sm shadow-sm flex items-center gap-1.5 whitespace-nowrap active:scale-95 transition">
+            <svg class="icon w-4 h-4 text-amber-400"><use href="#icon-plus"></use></svg>
+            <span data-i18n="btn_new_customer">+ નવો ગ્રાહક ઉમેરો</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="partiesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Dynamic -->
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 5: KARIGARS (ARTISANS) -->
+    <!-- ========================================== -->
+    <section id="tab-karigars" class="tab-content hidden space-y-5">
+      
+      <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <h2 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+            <svg class="w-4 h-4 text-amber-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M9.64 7.64c.23-.5.36-1.05.36-1.64 0-2.21-1.79-4-4-4S2 3.79 2 6s1.79 4 4 4c.59 0 1.14-.13 1.64-.36L10 12l-2.36 2.36C7.14 14.13 6.59 14 6 14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4c0-.59-.13-1.14-.36-1.64L12 14l7 7h3v-1L9.64 7.64zM6 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm0 12c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm9.5-8c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+            <span data-i18n="karigars_title">કારીગર વ્યવસ્થાપન અને મજૂરી હિસાબ</span>
+          </h2>
+          <p class="text-xs text-slate-500" data-i18n="karigars_subtitle">ક્યા કારીગર પાસે ક્યા વસ્ત્રો છે અને કેટલી મજૂરી બાકી છે</p>
+        </div>
+
+        <button onclick="openNewKarigarModal()" class="px-4 py-2 bg-royal-900 hover:bg-royal-800 text-white font-bold rounded-xl text-xs sm:text-sm shadow-sm flex items-center gap-2">
+          <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <span data-i18n="btn_new_karigar">+ નવો કારીગર ઉમેરો</span>
+        </button>
+      </div>
+
+      <div id="karigarsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Dynamic -->
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 6: SETTINGS & BACKUP (THEME REMOVED) -->
+    <!-- ========================================== -->
+    
+    <!-- ========================================== -->
+    <!-- TAB: STOCK / INVENTORY MANAGEMENT -->
+    <!-- ========================================== -->
+    <section id="tab-stock" class="tab-content hidden space-y-6">
+      
+      <!-- Stock Header & Toolbar -->
+      <div class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <div class="text-[11px] font-black text-amber-600 tracking-wider uppercase">॥ શ્રી ગોપીજનવલ્લભાય નમઃ ॥</div>
+          <h2 class="text-base sm:text-xl font-black text-slate-900 flex items-center gap-2">
+            <svg class="w-5 h-5 text-amber-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16.5l-9 5.25-9-5.25V7.5L12 2.25l9 5.25v9zM12 4.15L5.04 8.2 12 12.26l6.96-4.06L12 4.15zm-7 5.5v6.52l6 3.5V13.15L5 9.65zm14 0l-6 3.5v6.52l6-3.5V9.65z"/></svg>
+            <span data-i18n="stock_title">કાપડ & સાજ સ્ટોક વ્યવસ્થાપન</span>
+          </h2>
+          <p class="text-xs font-medium text-slate-500" data-i18n="stock_subtitle">ભગવાનના વસ્ત્રો, સિલ્ક, જરી બોર્ડર અને સાજ મટીરીયલનો જીવંત હિસાબ</p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2.5">
+          <button onclick="openStockModal()" class="px-3.5 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold rounded-xl text-xs sm:text-sm shadow-sm flex items-center gap-1.5 transition active:scale-95">
+            <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            <span data-i18n="btn_add_stock">+ નવો સ્ટોક ઉમેરો</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 4 Stock Summary KPI Cards -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        <!-- KPI 1: Total Stock Items -->
+        <div class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-200">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider" data-i18n="kpi_total_stock_items">કુલ સ્ટોક આઇટમ્સ</span>
+            <div class="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16.5l-9 5.25-9-5.25V7.5L12 2.25l9 5.25v9zM12 4.15L5.04 8.2 12 12.26l6.96-4.06L12 4.15zm-7 5.5v6.52l6 3.5V13.15L5 9.65zm14 0l-6 3.5v6.52l6-3.5V9.65z"/></svg>
+            </div>
+          </div>
+          <div class="mt-2.5">
+            <span class="text-2xl sm:text-3xl font-black text-slate-900" id="stockTotalItems">0</span>
+            <span class="text-xs text-slate-400 ml-1 font-medium" data-i18n="unit_items">આઇટમ્સ ઉપલબ્ધ</span>
+          </div>
+        </div>
+
+        <!-- KPI 2: Total Fabric in Stock -->
+        <div class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-200">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider" data-i18n="kpi_fabric_meters">કુલ કાપડ જથ્થો</span>
+            <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold">
+              🧵
+            </div>
+          </div>
+          <div class="mt-2.5">
+            <span class="text-2xl sm:text-3xl font-black text-indigo-600" id="stockTotalFabricMeters">0</span>
+            <span class="text-xs text-slate-400 ml-1 font-medium" data-i18n="unit_meters">મીટર સિલ્ક/કાપડ</span>
+          </div>
+        </div>
+
+        <!-- KPI 3: Total Stock Value (નવું: કુલ સ્ટોક કિંમત) -->
+        <div class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-200">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider" data-i18n="kpi_total_stock_value">કુલ સ્ટોક કિંમત</span>
+            <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-base">
+              ₹
+            </div>
+          </div>
+          <div class="mt-2.5">
+            <span class="text-2xl sm:text-3xl font-black text-emerald-600" id="stockTotalValue">₹0</span>
+            <span class="text-xs text-slate-400 ml-1 font-medium" data-i18n="unit_total_value">કુલ ઇન્વેન્ટરી મૂલ્ય</span>
+          </div>
+        </div>
+
+        <!-- KPI 4: Low Stock Alerts -->
+        <div class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-200">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider" data-i18n="kpi_low_stock">ઓછા સ્ટોકની ચેતવણી</span>
+            <div class="w-9 h-9 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold">
+              ⚠️
+            </div>
+          </div>
+          <div class="mt-2.5">
+            <span class="text-2xl sm:text-3xl font-black text-rose-600" id="stockLowStockCount">0</span>
+            <span class="text-xs text-rose-500 ml-1 font-bold" data-i18n="unit_need_reorder">આઇટમ્સ ઓછી છે</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search & Category Filters -->
+      <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div class="relative w-full sm:w-72">
+          <input type="text" id="stockSearchInput" oninput="renderStockList()" placeholder="સ્ટોક આઇટમ શોધો..." class="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500">
+          <span class="absolute left-3 top-2.5 text-slate-400"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+        </div>
+
+        <div class="flex items-center gap-2 w-full sm:w-auto">
+          <select id="stockCategoryFilter" onchange="renderStockList()" class="w-full sm:w-auto px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm font-bold focus:outline-none focus:ring-2 focus:ring-amber-500">
+            <option value="all">તમામ કેટેગરી (All Categories)</option>
+            <option value="fabric">🧵 કાપડ / સિલ્ક (Fabric)</option>
+            <option value="zari">✨ જરી / લેસ (Zari & Lace)</option>
+            <option value="vastra">👘 તૈયાર વસ્ત્ર (Readymade Vastra)</option>
+            <option value="shringar">👑 શ્રૃંગાર સાજ (Shringar)</option>
+            <option value="other">📦 અન્ય મટીરીયલ (Raw Material)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Stock Items List Container -->
+      <div id="stockItemsContainer" class="space-y-3">
+        <!-- Dynamically populated by renderStockList() -->
+      </div>
+    </section>
+<section id="tab-settings" class="tab-content hidden space-y-6">
+      
+      <!-- Business Settings Form -->
+      <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
+        <h2 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2 pb-3 border-b border-slate-100">
+          <svg class="w-4 h-4 text-slate-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+          <span data-i18n="settings_title">સિસ્ટમ સેટિંગ્સ અને બિઝનેસ પ્રોફાઈલ</span>
+        </h2>
+
+        <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="biz_name_label">દુકાન / બિઝનેસનું નામ</label>
+            <input type="text" id="settingBizName" value="શ્રીજી ના સાજ" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="biz_phone_label">સંપર્ક નંબર</label>
+            <input type="text" id="settingBizPhone" placeholder="+91 98765 43210" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="biz_address_label">સરનામું / શહેર</label>
+            <input type="text" id="settingBizAddress" placeholder="સુરત / અમદાવાદ / નાથદ્વારા" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="biz_upi_label">UPI ID (પેમેન્ટ QR કોડ માટે)</label>
+            <input type="text" id="settingBizUpi" placeholder="yourupi@bank" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+          </div>
+        </div>
+
+        <div class="mt-4 text-right">
+          <button onclick="saveBusinessSettings()" class="px-5 py-2 bg-royal-900 hover:bg-royal-800 text-white font-bold rounded-xl text-xs sm:text-sm shadow-sm transition" data-i18n="btn_save_settings">
+            સેટિંગ્સ સેવ કરો
+          </button>
+        </div>
+      </div>
+
+      <!-- App Security & Passcode Settings -->
+      <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-100 flex-wrap gap-2">
+          <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+            <svg class="icon w-5 h-5 text-amber-600"><use href="#icon-lock"></use></svg>
+            <span>એપ સુરક્ષા અને PIN લૉક (Security & PIN Lock)</span>
+          </h3>
+          <span class="px-2.5 py-1 text-xs font-bold rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>PIN સુરક્ષા સક્રિય</span>
+          </span>
+        </div>
+
+        <p class="text-xs text-slate-600 mt-2">
+          મોબાઇલ અથવા કમ્પ્યુટરમાં એપ ખોલતી વખતે અનધિકૃત વ્યક્તિ ડેટા ન જોઈ શકે તે માટે ૪-અંકનો સુરક્ષા PIN સેટ કરો.
+        </p>
+
+        <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 items-end">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">
+              ૪-અંકનો સિક્યુરિટી PIN બદલો (Default: 1234)
+            </label>
+            <div class="relative">
+              <input type="password" id="settingSecurityPin" maxlength="10" value="1234" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm font-mono tracking-widest focus:outline-none focus:ring-2 focus:ring-amber-500">
+              <button type="button" onclick="toggleSettingsPinVisibility()" class="absolute right-3 top-2.5 text-slate-400 hover:text-slate-700" title="PIN જુઓ">
+                <svg class="icon w-4 h-4"><use href="#icon-eye"></use></svg>
+              </button>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-1">માસ્ટર કી: <b class="text-amber-700 font-mono">1234</b> અથવા <b class="text-amber-700 font-mono">shreeji</b></p>
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <button onclick="saveSecuritySettings()" class="flex-1 py-2 px-4 bg-royal-900 hover:bg-royal-800 text-white font-bold rounded-xl text-xs sm:text-sm shadow-sm transition flex items-center justify-center gap-1.5 active:scale-95">
+              <svg class="icon w-4 h-4 text-amber-300"><use href="#icon-check"></use></svg>
+              <span>PIN સેવ કરો</span>
+            </button>
+            <button onclick="lockAppNow()" class="py-2 px-4 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl text-xs sm:text-sm shadow-sm transition flex items-center justify-center gap-1.5 active:scale-95" title="તરત જ સ્ક્રીન લૉક કરો">
+              <svg class="icon w-4 h-4"><use href="#icon-lock"></use></svg>
+              <span>અત્યારે જ લૉક કરો</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile App Quick Install Banner -->
+      <div class="bg-gradient-to-r from-amber-500/10 via-amber-400/10 to-amber-600/10 border-2 border-amber-400/40 rounded-2xl p-5 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="flex items-center space-x-3.5">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500 text-slate-950 flex items-center justify-center flex-shrink-0 shadow-md">
+            <svg class="icon w-6 h-6"><use href="#icon-mobile"></use></svg>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-slate-900">મોબાઇલમાં એપ ચલાવો & ઇન્સ્ટોલ કરો</h3>
+            <p class="text-xs text-slate-600 mt-0.5">તમારા ફોન કેમેરાથી QR Code સ્કેન કરીને 1 ક્લિકમાં Android અથવા iPhone પર એપ ઇન્સ્ટોલ કરો.</p>
+          </div>
+        </div>
+        <button onclick="openMobileInstallModal()" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold rounded-xl text-xs sm:text-sm shadow-sm flex items-center justify-center gap-2 flex-shrink-0 transition active:scale-95">
+          <svg class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3zm2 2v4h4V5zm8-2h8v8h-8zm2 2v4h4V5zM3 13h8v8H3zm2 2v4h4v-4zm13-2h3v2h-3zm-5 2h2v2h-2zm2 2h2v2h-2zm-2 2h2v2h-2zm4 0h4v2h-4zm2-4h2v2h-2zm0-2h2v2h-2z"/></svg>
+          <span>QR Code & ગાઇડ જુઓ</span>
+        </button>
+      </div>
+
+      
+
+    </section>
+
+  
+  </main>
+
+
+  <!-- ======================================================= -->
+  <!-- MODAL: ADD / EDIT STOCK ITEM -->
+  <!-- ======================================================= -->
+  <div id="stockModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full max-h-[92vh] flex flex-col border border-slate-100 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Modal Header -->
+      <div class="bg-gradient-to-r from-royal-950 to-slate-900 text-white px-6 py-4 flex items-center justify-between border-b-2 border-amber-500">
+        <div class="flex items-center space-x-3">
+          <div class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16.5l-9 5.25-9-5.25V7.5L12 2.25l9 5.25v9zM12 4.15L5.04 8.2 12 12.26l6.96-4.06L12 4.15zm-7 5.5v6.52l6 3.5V13.15L5 9.65zm14 0l-6 3.5v6.52l6-3.5V9.65z"/></svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-base sm:text-lg" id="stockModalTitle" data-i18n="btn_add_stock">+ નવો સ્ટોક ઉમેરો</h3>
+            <p class="text-xs text-amber-300/80">કાપડ અથવા સાજ સામગ્રીની વિગતો</p>
+          </div>
+        </div>
+        <button type="button" onclick="closeStockModal()" class="text-slate-400 hover:text-white p-2 rounded-xl transition">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+
+      <!-- Modal Body Form -->
+      <form id="stockForm" onsubmit="saveStockItem(event)" class="p-6 space-y-4 overflow-y-auto flex-grow text-slate-800 text-xs sm:text-sm">
+        <input type="hidden" id="stockId">
+
+        <!-- Item Name -->
+        <div>
+          <label class="block font-bold text-slate-700 mb-1" data-i18n="lbl_stock_item_name">આઇટમનું નામ / વર્ણન *</label>
+          <input type="text" id="stockItemName" required placeholder="દા.ત. શ્યામ કલ્યાણી પટોળા સિલ્ક કાપડ" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500">
+        </div>
+
+        <!-- Category & Unit -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1" data-i18n="lbl_stock_category">કેટેગરી *</label>
+            <select id="stockCategory" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500">
+              <option value="fabric">🧵 કાપડ / સિલ્ક (Fabric)</option>
+              <option value="zari">✨ જરી / લેસ (Zari & Lace)</option>
+              <option value="vastra">👘 તૈયાર વસ્ત્ર (Readymade Vastra)</option>
+              <option value="shringar">👑 શ્રૃંગાર સાજ (Shringar)</option>
+              <option value="other">📦 અન્ય મટીરીયલ (Raw Material)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block font-bold text-slate-700 mb-1" data-i18n="lbl_stock_unit">એકમ (Unit) *</label>
+            <select id="stockUnit" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500">
+              <option value="meter">મીટર (Meters)</option>
+              <option value="pcs">નંગ (Pieces)</option>
+              <option value="set">સેટ (Sets)</option>
+              <option value="roll">રોલ (Rolls)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Quantity & Low Stock Alert -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1" data-i18n="lbl_stock_qty">હાલનો જથ્થો *</label>
+            <input type="number" id="stockQuantity" step="0.1" min="0" required value="10" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm font-bold text-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-500">
+          </div>
+
+          <div>
+            <label class="block font-bold text-slate-700 mb-1" data-i18n="lbl_stock_min_alert">ઓછા સ્ટોકની ચેતવણી મર્યાદા</label>
+            <input type="number" id="stockMinAlert" step="0.1" min="0" value="5" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm font-bold text-rose-600 focus:outline-none focus:ring-2 focus:ring-amber-500">
+          </div>
+        </div>
+
+        <!-- Estimated Rate per Unit -->
+        <div>
+          <label class="block font-bold text-slate-700 mb-1" data-i18n="lbl_stock_rate">અંદાજિત ભાવ પ્રતિ એકમ (₹)</label>
+          <input type="number" id="stockRate" min="0" placeholder="0" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500">
+        </div>
+
+        <!-- Notes -->
+        <div>
+          <label class="block font-bold text-slate-700 mb-1" data-i18n="lbl_stock_notes">વિશેષ નોંધ / ઉપયોગ</label>
+          <textarea id="stockNotes" rows="2" placeholder="૫ નંબર વાઘા, હવેલી મનોરથ માટે ખાસ..." class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="pt-3 border-t border-slate-100 flex items-center justify-end space-x-3">
+          <button type="button" onclick="closeStockModal()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs sm:text-sm transition" data-i18n="btn_cancel">
+            રદ કરો
+          </button>
+          <button type="submit" class="px-5 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold rounded-xl text-xs sm:text-sm shadow-md transition active:scale-95" data-i18n="btn_save_stock">
+            સ્ટોક સેવ કરો
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+
+  <!-- ======================================================= -->
+  <!-- MODAL: ADD / EDIT ORDER -->
+  <!-- ======================================================= -->
+  <div id="orderModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[92vh] flex flex-col border border-slate-100 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Modal Header with Logo -->
+      <div class="bg-gradient-to-r from-royal-950 to-slate-900 text-white px-6 py-4 flex items-center justify-between border-b-2 border-amber-500">
+        <div class="flex items-center space-x-3">
+          <img src="logo.png" alt="Shrinathji" class="w-10 h-10 rounded-xl object-cover object-top ring-2 ring-amber-400">
+          <div>
+            <h3 class="text-base sm:text-lg font-bold" id="orderModalTitle">નવો ઓર્ડર દાખલ કરો</h3>
+            <p class="text-xs text-amber-300" data-i18n="modal_order_subtitle">ભગવાનના વસ્ત્રો અને સાજની વિગતો</p>
+          </div>
+        </div>
+        <button onclick="closeOrderModal()" class="text-slate-400 hover:text-white text-xl p-1">
+          <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-6 overflow-y-auto space-y-4 text-slate-800">
+        
+        <!-- Row 1: Order No, Order Date, Delivery Due Date -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="label_order_no">ઓર્ડર નં.</label>
+            <input type="text" id="modalOrderNo" class="w-full px-3 py-2 bg-slate-100 border border-slate-300 rounded-xl text-sm font-bold text-slate-800">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="label_order_date">ઓર્ડર તારીખ</label>
+            <input type="date" id="modalOrderDate" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-amber-700 mb-1" data-i18n="label_delivery_date">ડિલિવરી તારીખ *</label>
+            <input type="date" id="modalDeliveryDate" class="w-full px-3 py-2 bg-amber-50/60 border-2 border-amber-400 rounded-xl text-sm font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500">
+          </div>
+        </div>
+
+        <!-- Row 2: Party Name & Mobile Number -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="label_party_name">પાર્ટી / ગ્રાહકનું નામ *</label>
+            <input type="text" id="modalPartyName" list="customerDatalist" oninput="handlePartyNameInput(this.value)" placeholder="ગ્રાહકનું નામ લખો અથવા પસંદ કરો" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500">
+            <datalist id="customerDatalist"></datalist>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="label_party_phone">સંપર્ક / મોબાઈલ નં.</label>
+            <input type="tel" id="modalPartyPhone" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+          </div>
+        </div>
+
+        <!-- Row 3: Swaroop & Size -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="label_swaroop">ભગવાનનું સ્વરૂપ *</label>
+            <select id="modalSwaroop" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-amber-500">
+              <!-- Dynamic -->
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="label_murti_size">મૂર્તિ નંબર / સાઈઝ માપ</label>
+            <input type="text" id="modalMurtiSize" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+          </div>
+        </div>
+
+        <!-- Row 4: Vastra Category & Festival Tag -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="label_item_category">વસ્ત્ર / સાજનો પ્રકાર *</label>
+            <select id="modalItemCategory" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-amber-500">
+              <!-- Dynamic -->
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="label_utsav">ઉત્સવ / પ્રસંગ</label>
+            <select id="modalUtsav" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-amber-500">
+              <!-- Dynamic -->
+            </select>
+          </div>
+        </div>
+
+        <!-- Row 5: Material Option -->
+        <div class="bg-amber-50/70 p-3.5 rounded-2xl border border-amber-300">
+          <label class="block text-xs font-bold text-amber-950 mb-2">
+            <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9.07l-9-7-9 7 1.63 1.27L12 16z"/></svg>
+            <span data-i18n="label_material_option">મટીરીયલની પસંદગી *</span>
+          </label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <label class="flex items-center p-3 bg-white rounded-xl border-2 border-slate-200 cursor-pointer hover:border-amber-500 transition material-radio-label">
+              <input type="radio" name="modalMaterialOption" value="with_material" checked class="text-amber-600 focus:ring-amber-500 h-4 w-4">
+              <div class="ml-3">
+                <span class="text-xs sm:text-sm font-bold text-slate-900 block" data-i18n="radio_with_material">🧵 આપણું મટીરીયલ</span>
+                <span class="text-[11px] text-slate-500" data-i18n="radio_with_material_desc">કાપડ અને સામાન આપણે આપવાના છે</span>
+              </div>
+            </label>
+            <label class="flex items-center p-3 bg-white rounded-xl border-2 border-slate-200 cursor-pointer hover:border-amber-500 transition material-radio-label">
+              <input type="radio" name="modalMaterialOption" value="without_material" class="text-amber-600 focus:ring-amber-500 h-4 w-4">
+              <div class="ml-3">
+                <span class="text-xs sm:text-sm font-bold text-slate-900 block" data-i18n="radio_without_material">✂️ પાર્ટીનું મટીરીયલ</span>
+                <span class="text-[11px] text-slate-500" data-i18n="radio_without_material_desc">પાર્ટીએ કાપડ આપ્યું છે - ફક્ત સિલાઈ/મજૂરી</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        
+        <!-- Stock Material Linkage (Pick from Inventory) -->
+        <div id="orderStockLinkageContainer" class="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-400/30 space-y-2.5">
+          <div class="flex items-center justify-between">
+            <label class="text-xs font-bold text-amber-300 flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-amber-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16.5l-9 5.25-9-5.25V7.5L12 2.25l9 5.25v9zM12 4.15L5.04 8.2 12 12.26l6.96-4.06L12 4.15zm-7 5.5v6.52l6 3.5V13.15L5 9.65zm14 0l-6 3.5v6.52l6-3.5V9.65z"/></svg>
+              <span data-i18n="lbl_order_pick_stock">📦 સ્ટોકમાંથી કાપડ/સામગ્રી પસંદ કરો (વૈકલ્પિક)</span>
+            </label>
+            <span class="text-[10px] text-amber-400 font-semibold" data-i18n="lbl_stock_auto_deduct">ઓર્ડર સેવ થતાં સ્ટોકમાંથી આપોઆપ બાદ થશે</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+            <div class="sm:col-span-2">
+              <select id="modalOrderStockItem" onchange="onOrderStockSelectChange()" class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-xs sm:text-sm text-slate-100 font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500">
+                <option value="">-- સ્ટોકમાંથી પસંદ કરો (વૈકલ્પિક) --</option>
+              </select>
+            </div>
+            <div>
+              <div class="flex items-center gap-1.5">
+                <input type="number" id="modalOrderStockQty" step="0.1" min="0" placeholder="વપરાશ (0.0)" class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-xs sm:text-sm font-black text-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                <span id="modalOrderStockUnitLabel" class="text-xs text-slate-400 font-bold whitespace-nowrap">મીટર</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 6: Details -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="label_order_details">ઓર્ડર વિગત & કારીગરી ડિઝાઇન સૂચનાઓ</label>
+          <textarea id="modalOrderDetails" rows="2" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+        </div>
+
+        <!-- Row 7: Photo -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1 flex items-center justify-between">
+            <span data-i18n="label_photo">ડિઝાઇન / સેમ્પલ ફોટો</span>
+            <span class="text-[11px] text-slate-400 font-normal" data-i18n="label_photo_hint">કેમેરા અથવા ગેલેરીમાંથી અપલોડ કરો</span>
+          </label>
+          <div class="flex items-center gap-3">
+            <input type="file" id="modalPhotoInput" accept="image/*" class="text-xs text-slate-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-royal-50 file:text-royal-800 hover:file:bg-royal-100" onchange="handleModalPhotoPreview(event)">
+            <div id="modalPhotoPreviewContainer" class="hidden relative">
+              <img id="modalPhotoPreviewImg" src="" alt="Sample" class="w-12 h-12 object-cover rounded-lg border border-slate-300">
+              <button onclick="removeModalPhoto()" type="button" class="absolute -top-1.5 -right-1.5 bg-rose-600 text-white rounded-full w-4 h-4 text-[10px] flex items-center justify-center">✕</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 8: Financial Details (Estimated Price, Advance, Balance & Payment Status) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 bg-amber-50/60 p-4 rounded-2xl border-2 border-amber-300">
+          <div>
+            <label class="block text-xs font-bold text-slate-800 mb-1" data-i18n="label_estimated_price">અંદાજિત રકમ (₹) *</label>
+            <input type="number" id="modalEstimatedPrice" oninput="calculateModalBalance()" placeholder="0" class="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-emerald-800 mb-1" data-i18n="label_advance">એડવાન્સ જમા (₹)</label>
+            <input type="number" id="modalAdvanceReceived" oninput="calculateModalBalance()" placeholder="0" class="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-base font-semibold text-emerald-700 focus:outline-none focus:ring-2 focus:ring-amber-500">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-rose-800 mb-1" data-i18n="label_balance">બાકી રકમ (₹)</label>
+            <input type="number" id="modalBalanceDue" readonly placeholder="0" class="w-full px-3 py-2 bg-slate-100 border border-slate-300 rounded-xl text-base font-extrabold text-rose-600">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-800 mb-1" data-i18n="label_payment_status">પેમેન્ટ સ્ટેટસ</label>
+            <select id="modalPaymentStatus" class="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-sm font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500">
+              <!-- Dynamic -->
+            </select>
+          </div>
+        </div>
+
+        <!-- Row 9: Karigar Assignment -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="label_assign_karigar">કારીગર સોંપણી</label>
+            <select id="modalKarigarSelect" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-amber-500">
+              <!-- Dynamic -->
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="label_karigar_cost">કારીગર મજૂરી રકમ (₹)</label>
+            <input type="number" id="modalKarigarLaborCost" placeholder="0" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-amber-500">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="bg-slate-50 px-6 py-4 flex items-center justify-between border-t border-slate-200">
+        <button type="button" onclick="closeOrderModal()" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold rounded-xl text-xs sm:text-sm transition" data-i18n="btn_cancel">
+          રદ કરો
+        </button>
+        <button type="button" onclick="saveOrder()" class="px-6 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black rounded-xl text-xs sm:text-sm shadow-md shadow-amber-500/20 active:scale-95 transition flex items-center gap-2">
+          <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/></svg>
+          <span id="orderModalSaveBtnText">ઓર્ડર સેવ કરો</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- MODAL: ADD EXPENSE -->
+  <!-- ======================================================= -->
+  <div id="expenseModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full border border-slate-100 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      
+      <div class="bg-gradient-to-r from-royal-950 to-slate-900 text-white px-6 py-4 flex items-center justify-between border-b-2 border-rose-500">
+        <h3 class="text-base font-bold flex items-center gap-2">
+          <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+          <span data-i18n="modal_expense_title">નવો ખર્ચ દાખલ કરો</span>
+        </h3>
+        <button onclick="closeExpenseModal()" class="text-slate-400 hover:text-white text-lg">
+          <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-3 text-slate-800">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="th_date">તારીખ *</label>
+          <input type="date" id="expenseDate" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="th_category">ખર્ચ કેટેગરી *</label>
+          <select id="expenseCategory" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm font-semibold">
+            <!-- Dynamic -->
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="th_amount">રકમ (₹) *</label>
+          <input type="number" id="expenseAmount" placeholder="0" class="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-lg font-bold text-rose-600 focus:outline-none focus:ring-2 focus:ring-rose-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="th_details">વિગત / નોંધ</label>
+          <input type="text" id="expenseDescription" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-rose-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="th_pay_mode">ચૂકવણીનો પ્રકાર</label>
+          <select id="expensePaymentMode" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm">
+            <!-- Dynamic -->
+          </select>
+        </div>
+      </div>
+
+      <div class="bg-slate-50 px-6 py-4 flex items-center justify-between border-t border-slate-200">
+        <button type="button" onclick="closeExpenseModal()" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold rounded-xl text-xs" data-i18n="btn_cancel">
+          રદ કરો
+        </button>
+        <button type="button" onclick="saveExpense()" class="px-5 py-2 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl text-xs sm:text-sm shadow-sm flex items-center gap-1.5">
+          <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          <span data-i18n="btn_save_expense">ખર્ચ સેવ કરો</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- MODAL: ADD / EDIT CUSTOMER (PARTY)                     -->
+  <!-- ======================================================= -->
+  <div id="customerModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full border border-slate-100 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      
+      <div class="bg-gradient-to-r from-royal-950 to-slate-900 text-white px-6 py-4 flex items-center justify-between border-b-2 border-amber-500">
+        <h3 class="text-base font-bold flex items-center gap-2">
+          <svg class="icon w-5 h-5 text-amber-400"><use href="#icon-users"></use></svg>
+          <span id="customerModalTitle">નવો ગ્રાહક / પાર્ટી ઉમેરો</span>
+        </h3>
+        <button onclick="closeCustomerModal()" class="text-slate-400 hover:text-white text-lg">
+          <svg class="icon w-5 h-5"><use href="#icon-close"></use></svg>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-3.5 text-slate-800">
+        <input type="hidden" id="customerId" value="">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">ગ્રાહક / પાર્ટીનું પૂરું નામ *</label>
+          <input type="text" id="customerName" placeholder="દા.ત. શ્રીજી કૃપા સત્સંગ મંડળ / રમેશભાઈ" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">મોબાઈલ / WhatsApp નંબર</label>
+          <input type="tel" id="customerPhone" placeholder="+91 98765 43210" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">શહેર / સરનામું</label>
+          <input type="text" id="customerAddress" placeholder="દા.ત. સુરત, અમદાવાદ, મુંબઈ, નાથદ્વારા" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">વિશેષ નોંધ / સાજ પસંદગી</label>
+          <textarea id="customerNotes" rows="2" placeholder="ગ્રાહકની વિશેષ પસંદગી, સ્વરૂપ માપ કે નોંધ..." class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+        </div>
+      </div>
+
+      <div class="bg-slate-50 px-6 py-4 flex items-center justify-between border-t border-slate-200">
+        <button type="button" onclick="closeCustomerModal()" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold rounded-xl text-xs sm:text-sm">
+          રદ કરો
+        </button>
+        <button type="button" onclick="saveCustomer()" class="px-5 py-2 bg-royal-900 hover:bg-royal-800 text-white font-bold rounded-xl text-xs sm:text-sm shadow-sm flex items-center gap-1.5 active:scale-95 transition">
+          <svg class="icon w-4 h-4 text-emerald-400"><use href="#icon-check"></use></svg>
+          <span>ગ્રાહક સેવ કરો</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- MODAL: ADD / EDIT KARIGAR (ARTISAN)                     -->
+  <!-- ======================================================= -->
+  <div id="karigarModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full border border-slate-100 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      
+      <div class="bg-gradient-to-r from-royal-950 to-slate-900 text-white px-6 py-4 flex items-center justify-between border-b-2 border-amber-500">
+        <h3 class="text-base font-bold flex items-center gap-2">
+          <svg class="icon w-5 h-5 text-amber-400"><use href="#icon-scissors"></use></svg>
+          <span id="karigarModalTitle" data-i18n="modal_karigar_title">નવો કારીગર ઉમેરો</span>
+        </h3>
+        <button onclick="closeKarigarModal()" class="text-slate-400 hover:text-white text-lg">
+          <svg class="icon w-5 h-5"><use href="#icon-close"></use></svg>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-3.5 text-slate-800">
+        <input type="hidden" id="karigarId" value="">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="label_karigar_name">કારીગરનું નામ *</label>
+          <input type="text" id="karigarName" placeholder="દા.ત. રમેશભાઈ ભરતકામ" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="label_party_phone">મોબાઈલ નંબર</label>
+          <input type="tel" id="karigarPhone" placeholder="+91 98250 00000" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="label_specialty">કારીગરી નિપુણતા / કામનો પ્રકાર</label>
+          <input type="text" id="karigarSpecialty" placeholder="દા.ત. જરદોશી વર્ક, ઝરી ભરત, પીછવાઈ સિલાઈ..." class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+        </div>
+      </div>
+
+      <div class="bg-slate-50 px-6 py-4 flex items-center justify-between border-t border-slate-200">
+        <button type="button" onclick="closeKarigarModal()" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold rounded-xl text-xs sm:text-sm" data-i18n="btn_cancel">
+          રદ કરો
+        </button>
+        <button type="button" onclick="saveKarigar()" class="px-5 py-2 bg-royal-900 hover:bg-royal-800 text-white font-bold rounded-xl text-xs sm:text-sm shadow-sm flex items-center gap-1.5 active:scale-95 transition">
+          <svg class="icon w-4 h-4 text-emerald-400"><use href="#icon-check"></use></svg>
+          <span id="saveKarigarBtnText" data-i18n="btn_save_karigar">કારીગર સેવ કરો</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- MODAL: ORDER BILL / INVOICE & RECEIPT VIEW -->
+  <!-- ======================================================= -->
+  <div id="invoiceModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-xl w-full border border-slate-100 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Top Actions (Screen only) -->
+      <div class="no-print bg-slate-100 px-6 py-3 flex items-center justify-between border-b border-slate-200">
+        <span class="text-xs font-bold text-slate-600 flex items-center gap-1.5">
+          <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+          <span data-i18n="receipt_slip_title">ઓર્ડર પહોંચ / રસીદ</span>
+        </span>
+        <div class="flex items-center space-x-2">
+          <button onclick="window.print()" class="px-3 py-1.5 bg-royal-900 hover:bg-royal-800 text-white rounded-lg text-xs font-bold flex items-center gap-1 shadow-sm">
+            <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+            <span data-i18n="btn_print">પ્રિન્ટ</span>
+          </button>
+          <button onclick="closeInvoiceModal()" class="text-slate-400 hover:text-slate-800 text-lg p-1">
+            <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Printable Invoice Sheet -->
+      <div id="printableInvoiceArea" class="p-6 sm:p-8 space-y-4 text-slate-900 bg-white">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Footer WhatsApp share & Close -->
+      <div class="no-print bg-slate-50 px-6 py-4 flex items-center justify-between border-t border-slate-200">
+        <button onclick="sendInvoiceWhatsApp()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs flex items-center gap-2 shadow-sm">
+          <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43l-.47-.01c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.71 4.29 3.8 2.52 1.09 2.52.73 2.97.69.45-.04 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.3z"/></svg>
+          <span data-i18n="btn_send_whatsapp">વોટ્સએપ પર મોકલો</span>
+        </button>
+        <button onclick="closeInvoiceModal()" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold rounded-xl text-xs" data-i18n="btn_close">
+          બંધ કરો
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- MOBILE BOTTOM APP NAVIGATION BAR (Android & iOS)        -->
+  <!-- ======================================================= -->
+  <nav id="mobileBottomNav" class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-2xl px-2 py-1 flex items-center justify-around safe-bottom">
+    
+    <!-- Tab 1: Dashboard -->
+    <button onclick="switchTab('dashboard')" id="mob-dashboard" class="flex flex-col items-center justify-center py-1 px-2.5 active-mobile-tab text-royal-900 transition active:scale-90">
+      <svg class="w-4 h-4 text-amber-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+      <span class="text-[10px] font-bold" data-i18n="nav_dashboard">ડેશબોર્ડ</span>
+    </button>
+
+    <!-- Tab 2: Orders -->
+    <button onclick="switchTab('orders')" id="mob-orders" class="relative flex flex-col items-center justify-center py-1 px-2.5 text-slate-500 transition active:scale-90">
+      <svg class="w-4 h-4 text-amber-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+      <span class="text-[10px] font-bold" data-i18n="nav_orders">ઓર્ડર્સ</span>
+      <span id="mobileBadgeOrders" class="absolute -top-0.5 right-1 px-1.5 py-0.2 bg-amber-500 text-slate-950 text-[10px] font-extrabold rounded-full">0</span>
+    </button>
+
+    <!-- Center Floating Action Button: + New Order -->
+    <div class="relative -top-3">
+      <button onclick="openNewOrderModal()" class="w-12 h-12 rounded-full bg-gradient-to-tr from-amber-600 via-amber-500 to-amber-400 text-slate-950 shadow-lg shadow-amber-500/40 flex items-center justify-center active:scale-90 transition border-2 border-white ring-2 ring-amber-400/30" title="+ નવો ઓર્ડર">
+        <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+      </button>
+    </div>
+
+    <!-- Tab 3: Profit & Loss -->
+    <button onclick="switchTab('pnl')" id="mob-pnl" class="flex flex-col items-center justify-center py-1 px-2.5 text-slate-500 transition active:scale-90">
+      <svg class="w-4 h-4 text-amber-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M11 2v20c-5.07-.5-9-4.79-9-10s3.93-9.5 9-10zm2 0v8.99H22c-.47-4.74-4.24-8.52-9-8.99zm0 11.01V22c4.76-.47 8.53-4.25 9-8.99H13z"/></svg>
+      <span class="text-[10px] font-bold" data-i18n="nav_pnl">નફો-નુકસાન</span>
+    </button>
+
+    <!-- Tab 4: More / Menu -->
+    <button onclick="toggleMobileMoreMenu()" id="mob-more" class="flex flex-col items-center justify-center py-1 px-2.5 text-slate-500 transition active:scale-90">
+      <svg class="w-5 h-5 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      <span class="text-[10px] font-bold" data-i18n="nav_more">મેનુ</span>
+    </button>
+  </nav>
+
+  <!-- ======================================================= -->
+  <!-- MOBILE 'MORE' DRAWER SHEET (Bottom Sheet)               -->
+  <!-- ======================================================= -->
+  <div id="mobileMoreSheet" class="hidden fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-md flex flex-col justify-end" onclick="if(event.target === this) closeMobileMoreMenu()">
+    <div class="bg-slate-900 border-t-2 border-amber-500/50 rounded-t-3xl shadow-2xl p-5 animate-in slide-in-from-bottom duration-200 space-y-4 max-h-[85vh] overflow-y-auto safe-bottom text-white">
+      
+      <!-- Sheet Header with Clear Title & Visible Close Button -->
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-400/30 flex items-center justify-center">
+            <svg class="w-5 h-5 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-amber-300" data-i18n="more_menu_title">વધુ વિભાગો & સેટિંગ્સ</h3>
+            <p class="text-[10px] text-slate-400">મેનુ વિકલ્પ પસંદ કરો</p>
+          </div>
+        </div>
+        <button onclick="closeMobileMoreMenu()" class="w-8 h-8 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition border border-slate-700 active:scale-95" title="બંધ કરો">
+          <svg class="w-5 h-5 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+
+      <!-- Action Grid -->
+      <div class="grid grid-cols-2 gap-2.5">
+        
+        <!-- Customers / Parties -->
+        <button onclick="switchTab('parties'); closeMobileMoreMenu()" class="more-sheet-btn p-3 bg-slate-800/80 hover:bg-amber-500/15 rounded-2xl border border-slate-700 hover:border-amber-400/50 text-left transition flex items-center space-x-2.5 group active:scale-95">
+          <div class="w-8 h-8 rounded-xl bg-blue-500/20 text-blue-400 border border-blue-400/30 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition">
+            <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 3s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          </div>
+          <div>
+            <div class="text-xs font-bold text-slate-100 group-hover:text-amber-300 transition" data-i18n="nav_parties">ગ્રાહકો</div>
+            <div class="text-[10px] text-slate-400">પાર્ટી લિસ્ટ</div>
+          </div>
+        </button>
+
+        <!-- Artisans / Karigars -->
+        <button onclick="switchTab('karigars'); closeMobileMoreMenu()" class="more-sheet-btn p-3 bg-slate-800/80 hover:bg-amber-500/15 rounded-2xl border border-slate-700 hover:border-amber-400/50 text-left transition flex items-center space-x-2.5 group active:scale-95">
+          <div class="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-400 border border-purple-400/30 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition">
+            <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M9.64 7.64c.23-.5.36-1.05.36-1.64 0-2.21-1.79-4-4-4S2 3.79 2 6s1.79 4 4 4c.59 0 1.14-.13 1.64-.36L10 12l-2.36 2.36C7.14 14.13 6.59 14 6 14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4c0-.59-.13-1.14-.36-1.64L12 14l7 7h3v-1L9.64 7.64zM6 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm0 12c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm9.64-9.64L22 4V3h-3l-7.36 7.36 4 4z"/></svg>
+          </div>
+          <div>
+            <div class="text-xs font-bold text-slate-100 group-hover:text-amber-300 transition" data-i18n="nav_karigars">કારીગરો</div>
+            <div class="text-[10px] text-slate-400">મજૂરી હિસાબ</div>
+          </div>
+        </button>
+
+        <!-- Stock / Inventory -->
+        <button onclick="switchTab('stock'); closeMobileMoreMenu()" class="more-sheet-btn p-3 bg-slate-800/80 hover:bg-amber-500/15 rounded-2xl border border-slate-700 hover:border-amber-400/50 text-left transition flex items-center space-x-2.5 group active:scale-95">
+          <div class="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-400/30 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition">
+            <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16.5l-9 5.25-9-5.25V7.5L12 2.25l9 5.25v9zM12 4.15L5.04 8.2 12 12.26l6.96-4.06L12 4.15zm-7 5.5v6.52l6 3.5V13.15L5 9.65zm14 0l-6 3.5v6.52l6-3.5V9.65z"/></svg>
+          </div>
+          <div>
+            <div class="text-xs font-bold text-slate-100 group-hover:text-amber-300 transition" data-i18n="nav_stock">સ્ટોક</div>
+            <div class="text-[10px] text-slate-400">કાપડ & સાજ ઇન્વેન્ટરી</div>
+          </div>
+        </button>
+  
+        <!-- Business Settings -->
+        <button onclick="switchTab('settings'); closeMobileMoreMenu()" class="more-sheet-btn p-3 bg-slate-800/80 hover:bg-amber-500/15 rounded-2xl border border-slate-700 hover:border-amber-400/50 text-left transition flex items-center space-x-2.5 group active:scale-95">
+          <div class="w-8 h-8 rounded-xl bg-slate-700 text-slate-300 border border-slate-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition">
+            <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+          </div>
+          <div>
+            <div class="text-xs font-bold text-slate-100 group-hover:text-amber-300 transition" data-i18n="nav_settings">સેટિંગ્સ</div>
+            <div class="text-[10px] text-slate-400">દુકાન પ્રોફાઇલ</div>
+          </div>
+        </button>
+
+        <!-- Mobile Install & QR -->
+        <button onclick="openMobileInstallModal(); closeMobileMoreMenu()" class="more-sheet-btn p-3 col-span-2 bg-amber-500/15 hover:bg-amber-500/25 rounded-2xl border border-amber-400/40 text-left transition flex items-center space-x-2.5 active:scale-95">
+          <div class="w-8 h-8 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center flex-shrink-0 font-bold">
+            <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14zm-5 1c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>
+          </div>
+          <div>
+            <div class="text-xs font-bold text-amber-300" data-i18n="btn_install_mobile">મોબાઇલમાં એપ ઇન્સ્ટોલ કરો</div>
+            <div class="text-[10px] text-amber-200/80">QR Code સ્કેન કરો / ડાયરેક્ટ ઓપન</div>
+          </div>
+        </button>
+
+      </div>
+
+      <!-- Quick Export Utility Row -->
+      <div class="pt-2 border-t border-slate-800 flex items-center space-x-2">
+        <button onclick="exportOrdersCSV(); closeMobileMoreMenu()" class="flex-1 py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-bold flex items-center justify-center gap-1.5 transition active:scale-95">
+          <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+          <span>Excel CSV</span>
+        </button>
+        <button onclick="exportBackupJSON(); closeMobileMoreMenu()" class="flex-1 py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-bold flex items-center justify-center gap-1.5 transition active:scale-95">
+          <svg class="w-4 h-4 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+          <span>બેકઅપ (JSON)</span>
+        </button>
+      </div>
+
+      <!-- Dedicated Close Button at Bottom -->
+      <button onclick="closeMobileMoreMenu()" class="w-full py-2.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 font-bold text-xs flex items-center justify-center gap-1.5 transition active:scale-95">
+        <svg class="w-5 h-5 flex-shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        <span data-i18n="btn_close">મેનુ બંધ કરો (Close)</span>
+      </button>
+
+    </div>
+  </div>
+
+
+  <!-- ======================================================= -->
+  <!-- MODAL: MOBILE INSTALLATION GUIDE & LIVE QR CODE          -->
+  <!-- ======================================================= -->
+  <div id="mobileInstallModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4" onclick="if(event.target === this) closeMobileInstallModal()">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full border border-slate-100 overflow-hidden animate-in fade-in zoom-in-95 duration-200 flex flex-col max-h-[92vh]">
+      
+      <!-- Top Modal Header -->
+      <div class="bg-gradient-to-r from-royal-950 to-slate-900 text-white px-5 py-4 flex items-center justify-between border-b border-amber-500/30 flex-shrink-0">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-400/30 flex items-center justify-center">
+            <svg class="icon w-5 h-5"><use href="#icon-mobile"></use></svg>
+          </div>
+          <div>
+            <h3 class="text-sm sm:text-base font-bold text-white">મોબાઇલમાં એપ ઇન્સ્ટોલ કરો</h3>
+            <p class="text-[11px] text-amber-300">Android & iPhone બંને માટે લાઈવ ગાઈડ</p>
+          </div>
+        </div>
+        <button onclick="closeMobileInstallModal()" class="text-slate-400 hover:text-white text-lg p-1">
+          <svg class="icon w-5 h-5"><use href="#icon-close"></use></svg>
+        </button>
+      </div>
+
+      <!-- Modal Body (Scrollable) -->
+      <div class="p-5 space-y-4 overflow-y-auto flex-grow text-slate-800 text-xs sm:text-sm">
+        
+        <!-- Live QR Code Container -->
+        <div class="bg-gradient-to-b from-amber-50/90 to-amber-100/50 border-2 border-amber-300 rounded-3xl p-4 sm:p-5 text-center shadow-sm">
+          
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500 text-slate-950 rounded-full font-black text-[11px] uppercase tracking-wider mb-2 shadow-sm">
+            <span>✨</span> <span>ડાયરેક્ટ ઓનલાઈન QR કોડ (Wi-Fi ની જરૂર નથી)</span>
+          </div>
+
+          <p class="text-xs sm:text-sm font-bold text-slate-800 mb-3">
+            તમારા ફોન કેમેરાથી આ QR Code સ્કેન કરો:
+          </p>
+
+          <div id="qrCodeContainer" class="mx-auto w-52 h-52 bg-white p-3 rounded-2xl shadow-md border-2 border-amber-400 flex items-center justify-center">
+            <!-- Rendered dynamically by qrcode.min.js -->
+          </div>
+          
+          <!-- Security PIN Badge -->
+          <div class="mt-3.5 p-3 bg-amber-500/15 border border-amber-400/60 rounded-2xl flex items-center justify-between flex-wrap gap-2 text-left">
+            <div class="flex items-center space-x-2">
+              <span class="text-lg">🔐</span>
+              <div>
+                <div class="text-[11px] text-amber-900 font-semibold">એપ અનલૉક સુરક્ષા PIN:</div>
+                <div class="text-base text-amber-700 font-black font-mono tracking-widest">1234 <span class="text-[11px] font-normal text-slate-600">(અથવા shreeji)</span></div>
+              </div>
+            </div>
+            <span class="text-[11px] bg-amber-200/80 text-amber-950 px-2 py-1 rounded-lg font-bold">
+              સ્કેન કરી PIN નાખો etle ઓપન!
+            </span>
+          </div>
+
+          <!-- Fast Action Buttons (WhatsApp Share & Direct Test) -->
+          <div class="mt-3.5 grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <button onclick="sendMobileLinkWhatsApp()" class="w-full py-2.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs sm:text-sm shadow-sm flex items-center justify-center gap-2 active:scale-95 transition">
+              <svg class="icon w-4 h-4 text-white"><use href="#icon-whatsapp"></use></svg>
+              <span>WhatsApp પર લિંક & PIN મોકલો</span>
+            </button>
+            <button onclick="testOpenMobileLink()" class="w-full py-2.5 px-4 bg-royal-900 hover:bg-royal-800 text-white font-bold rounded-xl text-xs sm:text-sm shadow-sm flex items-center justify-center gap-2 active:scale-95 transition">
+              <svg class="icon w-4 h-4 text-amber-300"><use href="#icon-eye"></use></svg>
+              <span>બ્રાઉઝરમાં લિંક ચકાસો</span>
+            </button>
+          </div>
+
+          <!-- Link Box with Update & Copy -->
+          <div class="mt-3 pt-3 border-t border-amber-200/80 flex items-center justify-center gap-1.5 flex-wrap">
+            <input type="text" id="mobileLinkInput" class="text-xs font-mono bg-white px-3 py-1.5 rounded-xl border border-slate-300 text-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-500 w-64 text-center" placeholder="https://humdrum-caption-3tmcf.drophtml.run/">
+            <button onclick="copyMobileLink()" class="px-3 py-1.5 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold rounded-xl text-xs shadow-sm flex items-center gap-1 active:scale-95 transition">
+              <span id="copyBtnText">કોપી</span>
+            </button>
+            <button onclick="updateCustomQRUrl()" class="px-3 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold rounded-xl text-xs shadow-sm active:scale-95 transition" title="કસ્ટમ URL સેટ કરો">
+              અપડેટ
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Android vs iPhone Selector Tabs -->
+        <div class="space-y-3">
+          <div class="flex border-b border-slate-200 text-xs font-bold">
+            <button onclick="switchInstallTab('android')" id="tabBtnAndroid" class="py-2 px-4 border-b-2 border-amber-500 text-amber-700">Android (Chrome)</button>
+            <button onclick="switchInstallTab('ios')" id="tabBtnIos" class="py-2 px-4 border-b-2 border-transparent text-slate-500">iPhone / iPad (Safari)</button>
+          </div>
+
+          <!-- Android Instructions -->
+          <div id="installGuideAndroid" class="space-y-2 text-xs text-slate-700 bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+            <div class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded-full bg-amber-500 text-slate-950 font-bold flex items-center justify-center flex-shrink-0 text-[10px]">1</span>
+              <span>ફોન કેમેરા અથવા Google Lens થી ઉપરનો <b>QR Code સ્કેન કરો</b> (અથવા WhatsApp પર આવેલી લિંક પર ક્લિક કરો).</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded-full bg-amber-500 text-slate-950 font-bold flex items-center justify-center flex-shrink-0 text-[10px]">2</span>
+              <span>સ્ક્રીન પર સુરક્ષા લૉક આવશે — ૪-અંકનો PIN <b class="text-amber-700 font-mono">1234</b> દાખલ કરો જેથી એપ ખુલી જશે.</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded-full bg-amber-500 text-slate-950 font-bold flex items-center justify-center flex-shrink-0 text-[10px]">3</span>
+              <span>ક્રોમ બ્રાઉઝરમાં ઉપર જમણી બાજુ <b>ત્રણ ટપકાં (⋮)</b> પર ટેપ કરો.</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded-full bg-amber-500 text-slate-950 font-bold flex items-center justify-center flex-shrink-0 text-[10px]">4</span>
+              <span><b>"Install app" (એપ ઇન્સ્ટોલ કરો)</b> અથવા <b>"Add to Home screen"</b> પર ક્લિક કરો.</span>
+            </div>
+            <div class="p-2.5 bg-emerald-50 text-emerald-800 rounded-xl font-medium border border-emerald-200 mt-2">
+              ✅ હવે તમારા મોબાઈલમાં શ્રીનાથજીના આઇકન સાથે ફૂલ સ્ક્રીન એપ તૈયાર છે — ગમે ત્યારે એક ટચથી ખોલો!
+            </div>
+          </div>
+
+          <!-- iPhone Instructions -->
+          <div id="installGuideIos" class="hidden space-y-2 text-xs text-slate-700 bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+            <div class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded-full bg-amber-500 text-slate-950 font-bold flex items-center justify-center flex-shrink-0 text-[10px]">1</span>
+              <span>iPhone કેમેરાથી <b>QR Code સ્કેન કરો</b> અથવા Safari બ્રાઉઝરમાં લિંક ખોલો.</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded-full bg-amber-500 text-slate-950 font-bold flex items-center justify-center flex-shrink-0 text-[10px]">2</span>
+              <span>સુરક્ષા પાસકોડ સ્ક્રીન પર <b class="text-amber-700 font-mono">1234</b> PIN લખો.</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded-full bg-amber-500 text-slate-950 font-bold flex items-center justify-center flex-shrink-0 text-[10px]">3</span>
+              <span>નીચે વચ્ચે રહેલા <b>Share (શેર) આઇકન (ચોરસ અને ઉપર તીર ⎋)</b> પર ક્લિક કરો.</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded-full bg-amber-500 text-slate-950 font-bold flex items-center justify-center flex-shrink-0 text-[10px]">4</span>
+              <span>નીચે સ્ક્રોલ કરીને <b>"Add to Home Screen" (હોમ સ્ક્રીન પર ઉમેરો ➕)</b> પસંદ કરો અને ઉપર <b>"Add"</b> દબાવો.</span>
+            </div>
+            <div class="p-2.5 bg-emerald-50 text-emerald-800 rounded-xl font-medium border border-emerald-200 mt-2">
+              ✅ તમારા iPhone માં એપ રિયલ એપ સ્ટોર એપની જેમ ફૂલ સ્ક્રીન ચાલશે!
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="bg-slate-50 px-5 py-3 border-t border-slate-200 flex items-center justify-end flex-shrink-0">
+        <button onclick="closeMobileInstallModal()" class="px-5 py-2 bg-royal-900 hover:bg-royal-800 text-white font-bold rounded-xl text-xs">
+          સમજાઈ ગયું (Close)
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- MODAL: LIVE P2P DEVICE SYNC (MOBILE <-> PC)             -->
+  <!-- ======================================================= -->
+  <div id="peerSyncModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4" onclick="if(event.target === this) closePeerSyncModal()">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full border border-slate-100 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      
+      <div class="bg-gradient-to-r from-royal-950 to-slate-900 text-white px-5 py-4 flex items-center justify-between border-b border-amber-500/30">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-9 h-9 rounded-xl bg-blue-500/20 text-blue-400 border border-blue-400/30 flex items-center justify-center">
+            <svg class="icon w-5 h-5"><use href="#icon-mobile"></use></svg>
+          </div>
+          <div>
+            <h3 class="text-sm sm:text-base font-bold text-white">લાઈવ ડિવાઇસ સિંક (Live Device Sync)</h3>
+            <p class="text-[11px] text-amber-300">PC અને મોબાઇલ વચ્ચે સીધા ઓર્ડર્સ ટ્રાન્સફર કરો</p>
+          </div>
+        </div>
+        <button onclick="closePeerSyncModal()" class="text-slate-400 hover:text-white text-lg p-1">
+          <svg class="icon w-5 h-5"><use href="#icon-close"></use></svg>
+        </button>
+      </div>
+
+      <div class="p-5 space-y-4 text-xs sm:text-sm text-slate-800">
+        
+        <!-- HOST VIEW (On PC) -->
+        <div id="peerHostView" class="space-y-3 text-center">
+          <p class="text-xs text-slate-600">આ કમ્પ્યુટરનો સિંક કોડ નીચે મુજબ છે. આ કોડ તમારા મોબાઇલમાં દાખલ કરો:</p>
+          <div class="p-4 bg-amber-50 border-2 border-amber-400 rounded-2xl shadow-inner">
+            <div class="text-[11px] text-amber-900 font-bold uppercase tracking-wider mb-1">આ કમ્પ્યુટરનો સિંક કોડ:</div>
+            <div id="peerHostCodeDisplay" class="text-2xl font-black font-mono text-royal-950 tracking-widest py-1">
+              જનરેટ થઈ રહ્યો છે...
+            </div>
+          </div>
+          <div id="peerHostStatus" class="text-xs text-slate-500 font-semibold flex items-center justify-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+            <span>મોબાઇલ કનેક્શનની રાહ જોઈ રહ્યું છે...</span>
+          </div>
+        </div>
+
+        <!-- CLIENT VIEW (On Mobile) -->
+        <div id="peerClientView" class="space-y-3 hidden">
+          <p class="text-xs text-slate-600">કમ્પ્યુટરની સ્ક્રીન પર દર્શાવેલ <b>સિંક કોડ</b> અહીં લખો:</p>
+          <input type="text" id="peerTargetInput" placeholder="ઉદાહરણ: SAAJ-1234" class="w-full text-center px-4 py-2.5 bg-slate-50 border-2 border-amber-400 rounded-xl font-mono text-base font-bold tracking-widest uppercase focus:outline-none focus:ring-2 focus:ring-amber-500">
+          <button onclick="connectAndSendToPeer()" id="peerSendBtn" class="w-full py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black rounded-xl text-xs sm:text-sm shadow-md active:scale-95 transition">
+            ઓર્ડર્સ PC માં ટ્રાન્સફર કરો ➔
+          </button>
+          <div id="peerClientStatus" class="text-xs text-center text-slate-500 font-semibold"></div>
+        </div>
+
+      </div>
+
+      <div class="bg-slate-50 px-5 py-3 border-t border-slate-200 flex items-center justify-end">
+        <button onclick="closePeerSyncModal()" class="px-5 py-2 bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold rounded-xl text-xs">
+          બંધ કરો (Close)
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Audio Chime for Completion -->
+  <audio id="completeAudio" preload="auto">
+    <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbqWE2MDCe4O7womE1MDCe4O7womE1MDCe4O7womE1MDCe4O7womE1MD==" type="audio/wav">
+  </audio>
+
+  <!-- Application Logic JS -->
+  <script src="peerjs.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
