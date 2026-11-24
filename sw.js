@@ -1,5 +1,5 @@
 // Service Worker for Shreeji Na Saaj (શ્રીજી ના સાજ)
-const CACHE_NAME = 'shreeji-saaj-v4';
+const CACHE_NAME = 'shreeji-saaj-v5';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -11,11 +11,6 @@ const ASSETS_TO_CACHE = [
 ];
 
 self.addEventListener('install', (e) => {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS_TO_CACHE);
-    })
-  );
   self.skipWaiting();
 });
 
@@ -34,12 +29,24 @@ self.addEventListener('activate', (e) => {
   self.clients.claim();
 });
 
+// Network-First strategy: Always fetch latest from server when online, fallback to cache when offline
 self.addEventListener('fetch', (e) => {
+  if (e.request.method !== 'GET') return;
   e.respondWith(
-    caches.match(e.request).then((cachedResponse) => {
-      return cachedResponse || fetch(e.request).catch(() => {
-        return caches.match('./index.html');
-      });
-    })
+    fetch(e.request)
+      .then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200) {
+          const responseClone = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(e.request, responseClone);
+          });
+        }
+        return networkResponse;
+      })
+      .catch(() => {
+        return caches.match(e.request).then((cachedResponse) => {
+          return cachedResponse || caches.match('./index.html');
+        });
+      })
   );
 });

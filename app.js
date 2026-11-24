@@ -3959,7 +3959,7 @@ function formatCurrency(num) {
 function initPWA() {
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('sw.js').catch(() => {});
+      navigator.serviceWorker.register('sw.js?v=5').catch(() => {});
     });
   }
 }
@@ -4096,7 +4096,7 @@ function switchInstallTab(platform) {
   }
 }
 
-const PUBLIC_APP_URL = 'https://false-hotel-55pa9.drophtml.run/';
+const PUBLIC_APP_URL = 'https://shreeji-na-saaj.vercel.app/';
 
 function renderQRCode() {
   const container = document.getElementById('qrCodeContainer');
