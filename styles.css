@@ -497,3 +497,24 @@ body[class*="theme-"] .badge-theme-accent {
   background: var(--glass-pill-hover, rgba(245, 158, 11, 0.2)) !important;
   border-color: var(--accent-color, #f59e0b) !important;
 }
+
+/* Mobile Customize Sheet & Mobile Bottom Drawer System */
+#mobileCustomizeSheet > div,
+#mobileMoreSheet > div {
+  background: var(--glass-card-bg, rgba(15, 23, 42, 0.95)) !important;
+  backdrop-filter: blur(28px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(190%) !important;
+  border-top: 2px solid var(--glass-border, rgba(245, 158, 11, 0.5)) !important;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.75) !important;
+}
+
+/* Touch-optimized active states */
+@media (max-width: 768px) {
+  body {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .safe-bottom {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+}

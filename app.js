@@ -116,6 +116,7 @@ const state = {
   font: 'font-serif', // 5 distinct fonts
   dashboardFilter: 'all',
   orders: [],
+  deletedOrderIds: [],
   stock: [],
   editingStockId: null,
   expenses: [],
@@ -159,7 +160,8 @@ const STORAGE_KEYS = {
   SETTINGS: 'shreeji_settings_v1',
   LANG: 'shreeji_lang_v1',
   THEME: 'shreeji_theme_v1',
-  FONT: 'shreeji_font_v1'
+  FONT: 'shreeji_font_v1',
+  DELETED_ORDERS: 'shreeji_deleted_orders_v1'
 };
 
 // 5 DISTINCT THEMES CONFIGURATION
@@ -1290,8 +1292,14 @@ function loadDataFromStorage() {
       { id: 'stk_4', itemName: 'મોતી ચુંદડી & પિછવાઈ સિલ્ક', category: 'fabric', quantity: 12.0, unit: 'meter', minAlertQty: 3, ratePerUnit: 480, notes: 'હવેલી મનોરથ' }
     ];
 
+    const savedDeleted = localStorage.getItem(STORAGE_KEYS.DELETED_ORDERS);
+    state.deletedOrderIds = savedDeleted ? JSON.parse(savedDeleted) : [];
+
     const savedOrders = localStorage.getItem(STORAGE_KEYS.ORDERS);
     state.orders = savedOrders ? JSON.parse(savedOrders) : [];
+    if (state.deletedOrderIds.length > 0) {
+      state.orders = state.orders.filter(o => !state.deletedOrderIds.includes(o.id));
+    }
 
     const savedExpenses = localStorage.getItem(STORAGE_KEYS.EXPENSES);
     state.expenses = savedExpenses ? JSON.parse(savedExpenses) : [];
@@ -1457,6 +1465,7 @@ function setTheme(themeKey) {
   saveDataToStorage();
   applyThemeAndFont();
   closeThemeDropdown();
+  renderMobileCustomizeSheet();
   renderDashboard();
   renderPnL();
 }
@@ -1467,6 +1476,77 @@ function setFont(fontKey) {
   saveDataToStorage();
   applyThemeAndFont();
   closeFontDropdown();
+  renderMobileCustomizeSheet();
+}
+
+function openCustomizeSheet() {
+  renderMobileCustomizeSheet();
+  const sheet = document.getElementById('mobileCustomizeSheet');
+  if (sheet) sheet.classList.remove('hidden');
+}
+
+function closeCustomizeSheet() {
+  const sheet = document.getElementById('mobileCustomizeSheet');
+  if (sheet) sheet.classList.add('hidden');
+}
+
+function renderMobileCustomizeSheet() {
+  const sheet = document.getElementById('mobileCustomizeSheet');
+  if (!sheet) return;
+
+  const lang = state.lang;
+  ['gu', 'mr', 'en'].forEach(l => {
+    const sheetBtn = document.getElementById(`sheetLangBtn-${l}`);
+    if (sheetBtn) {
+      if (l === lang) {
+        sheetBtn.className = 'p-2.5 rounded-xl text-center border transition active:scale-95 font-black text-xs flex flex-col items-center gap-1 bg-amber-500/25 border-amber-400 text-amber-300 ring-2 ring-amber-400/40 shadow-sm';
+      } else {
+        sheetBtn.className = 'p-2.5 rounded-xl text-center border transition active:scale-95 font-semibold text-xs flex flex-col items-center gap-1 bg-slate-800/80 border-slate-700 text-slate-400 hover:text-white';
+      }
+    }
+  });
+
+  const themeContainer = document.getElementById('sheetThemesList');
+  if (themeContainer) {
+    themeContainer.innerHTML = THEMES.map(t => {
+      const isSelected = state.theme === t.key;
+      return `
+        <div onclick="setTheme('${t.key}')" class="p-3 rounded-2xl cursor-pointer transition flex items-center justify-between ${isSelected ? 'bg-amber-500/20 border-2 border-amber-400 shadow-md font-bold' : 'bg-slate-800/70 border border-slate-700/80 hover:bg-slate-800'} active:scale-98">
+          <div class="flex items-center space-x-3 min-w-0">
+            <span class="w-9 h-9 rounded-xl flex items-center justify-center text-base shadow-sm flex-shrink-0" style="background: ${t.previewBg}">
+              ${t.badge}
+            </span>
+            <div class="min-w-0">
+              <div class="text-xs font-black text-white truncate">${t.name[lang] || t.name.gu}</div>
+              <div class="text-[10px] text-slate-400 truncate">${t.desc[lang] || t.desc.gu}</div>
+            </div>
+          </div>
+          ${isSelected ? '<span class="w-6 h-6 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center text-xs font-black flex-shrink-0 shadow-sm">✓</span>' : '<span class="w-5 h-5 rounded-full border border-slate-600 flex-shrink-0"></span>'}
+        </div>
+      `;
+    }).join('');
+  }
+
+  const fontContainer = document.getElementById('sheetFontsList');
+  if (fontContainer) {
+    fontContainer.innerHTML = FONTS.map(f => {
+      const isSelected = state.font === f.key;
+      return `
+        <div onclick="setFont('${f.key}')" class="p-3 rounded-2xl cursor-pointer transition flex items-center justify-between ${isSelected ? 'bg-amber-500/20 border-2 border-amber-400 shadow-md font-bold' : 'bg-slate-800/70 border border-slate-700/80 hover:bg-slate-800'} active:scale-98">
+          <div class="flex items-center space-x-3 min-w-0">
+            <span class="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-base shadow-sm flex-shrink-0">
+              ${f.badge}
+            </span>
+            <div class="min-w-0">
+              <div class="text-xs font-black text-white truncate ${f.key}">${f.name[lang] || f.name.gu}</div>
+              <div class="text-[10px] text-amber-200/80 truncate ${f.key}">${lang === 'gu' ? '॥ શ્રી કૃષ્ણઃ શરણં મમ ॥' : lang === 'mr' ? '॥ श्री कृष्णः शरणं मम ॥' : 'Divine Sacred Heritage'}</div>
+            </div>
+          </div>
+          ${isSelected ? '<span class="w-6 h-6 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center text-xs font-black flex-shrink-0 shadow-sm">✓</span>' : '<span class="w-5 h-5 rounded-full border border-slate-600 flex-shrink-0"></span>'}
+        </div>
+      `;
+    }).join('');
+  }
 }
 
 function renderThemeDropdown() {
@@ -1580,6 +1660,12 @@ function setLanguage(lang) {
   const brand = document.getElementById('brandTitle');
   if (brand) brand.innerText = dict.brand_title;
 
+  const brandMob = document.getElementById('brandTitleMob');
+  if (brandMob) brandMob.innerText = dict.brand_title;
+
+  const mobLangBadge = document.getElementById('mobLangBadge');
+  if (mobLangBadge) mobLangBadge.innerText = lang === 'gu' ? 'ગુજ' : lang === 'mr' ? 'मरा' : 'ENG';
+
   const shlokLeft = document.getElementById('headerShlokLeft');
   if (shlokLeft) shlokLeft.innerText = dict.header_shlok_left;
 
@@ -1590,6 +1676,8 @@ function setLanguage(lang) {
   if (syncText) {
     syncText.innerText = lang === 'gu' ? '☁️ ક્લાઉડ સિંક (લાઇવ)' : lang === 'mr' ? '☁️ क्लाउड सिंक (थेट)' : '☁️ Cloud Sync (Live)';
   }
+
+  renderMobileCustomizeSheet();
 
   // Update all [data-i18n]
   document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -2254,12 +2342,13 @@ function renderOrdersList() {
             </span>
           `}
 
-          <div class="flex items-center space-x-1">
-            <button onclick="openEditOrderModal('${order.id}')" title="Edit Order" class="p-1.5 rounded-lg bg-slate-800/80 hover:bg-amber-950 border border-slate-700 text-amber-400 transition">
-              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+          <div class="flex items-center space-x-1.5">
+            <button onclick="openEditOrderModal('${order.id}')" title="Edit Order" class="p-2 rounded-xl bg-slate-800/80 hover:bg-amber-950 border border-slate-700 text-amber-400 transition active:scale-95 shadow-xs" title="એડિટ કરો">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
             </button>
-            <button onclick="deleteOrder('${order.id}')" title="Delete Order" class="p-1.5 rounded-lg bg-slate-800/80 hover:bg-rose-950 border border-slate-700 text-rose-400 transition">
-              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+            <button onclick="deleteOrder('${order.id}')" title="Delete Order" class="px-2.5 py-1.5 rounded-xl bg-rose-500/15 hover:bg-rose-500/25 border border-rose-500/40 text-rose-400 text-xs font-bold flex items-center gap-1 transition active:scale-95 shadow-xs" title="ઓર્ડર ડિલીટ કરો">
+              <svg class="w-3.5 h-3.5 text-rose-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+              <span>${state.lang === 'gu' ? 'ડિલીટ' : state.lang === 'mr' ? 'हटवा' : 'Delete'}</span>
             </button>
           </div>
         </div>
@@ -2321,6 +2410,8 @@ function openNewOrderModal(prefillParty = '', prefillPhone = '') {
   const dict = i18n[state.lang];
   state.editingOrderId = null;
   state.currentModalPhoto = null;
+  const delBtnNew = document.getElementById('modalOrderDeleteBtn');
+  if (delBtnNew) delBtnNew.classList.add('hidden');
 
   document.getElementById('orderModalTitle').innerText = dict.btn_new_order;
   document.getElementById('orderModalSaveBtnText').innerText = dict.btn_save_order;
@@ -2397,6 +2488,8 @@ function openEditOrderModal(orderId) {
 
   updateCustomerDatalist();
   populateKarigarSelect(order.karigarId);
+  const delBtn = document.getElementById('modalOrderDeleteBtn');
+  if (delBtn) delBtn.classList.remove('hidden');
   document.getElementById('orderModal').classList.remove('hidden');
 }
 
@@ -2611,36 +2704,97 @@ function quickCompleteOrder(orderId) {
   }
 }
 
+let orderIdPendingDelete = null;
+
 function deleteOrder(orderId) {
+  if (!orderId) return;
   const order = state.orders.find(o => o.id === orderId);
   if (!order) return;
 
-  const msg = state.lang === 'gu'
-    ? `શું તમે ખરેખર ઓર્ડર ${order.orderNo} રદ કરવા માંગો છો?`
-    : state.lang === 'mr'
-    ? `तुम्हाला नक्की ऑर्डर ${order.orderNo} हटवायची आहे का?`
-    : `Are you sure you want to delete order ${order.orderNo}?`;
+  orderIdPendingDelete = orderId;
+  const modal = document.getElementById('deleteConfirmModal');
+  const title = document.getElementById('deleteConfirmTitle');
+  const desc = document.getElementById('deleteConfirmDesc');
 
-  if (confirm(msg)) {
+  if (title) {
+    title.innerText = state.lang === 'gu'
+      ? `ઓર્ડર #${order.orderNo || ''} ડિલીટ કરવો છે?`
+      : state.lang === 'mr'
+      ? `ऑर्डर #${order.orderNo || ''} हटवायची आहे का?`
+      : `Delete Order #${order.orderNo || ''}?`;
+  }
 
-  if (order.stockUsage && order.stockUsage.stockId && order.stockUsage.quantity > 0) {
+  if (desc) {
+    desc.innerText = state.lang === 'gu'
+      ? `ગ્રાહક: ${order.partyName || 'ગ્રાહક'} (${getLocalizedItem(order.itemCategory) || 'સાજ'})
+શું તમે ખરેખર આ ઓર્ડર કાયમી રદ કરવા માંગો છો?`
+      : `Party: ${order.partyName || '-'}
+Are you sure you want to permanently delete this order?`;
+  }
+
+  if (modal) {
+    modal.classList.remove('hidden');
+  } else {
+    if (confirm(state.lang === 'gu' ? `શું તમે ખરેખર ઓર્ડર ${order.orderNo} રદ કરવા માંગો છો?` : `Delete order ${order.orderNo}?`)) {
+      executeDeleteOrder(orderId);
+    }
+  }
+}
+
+function closeDeleteConfirmModal() {
+  const modal = document.getElementById('deleteConfirmModal');
+  if (modal) modal.classList.add('hidden');
+  orderIdPendingDelete = null;
+}
+
+function executeDeleteOrder(orderId = null) {
+  const targetId = orderId || orderIdPendingDelete;
+  if (!targetId) return;
+
+  const order = state.orders.find(o => o.id === targetId);
+  const orderNo = order ? (order.orderNo || '') : '';
+
+  // 1. Add to tombstone deletedOrderIds so sync NEVER re-adds it
+  if (!state.deletedOrderIds) state.deletedOrderIds = [];
+  if (!state.deletedOrderIds.includes(targetId)) {
+    state.deletedOrderIds.push(targetId);
+    if (state.deletedOrderIds.length > 500) state.deletedOrderIds.shift();
+    localStorage.setItem(STORAGE_KEYS.DELETED_ORDERS, JSON.stringify(state.deletedOrderIds));
+  }
+
+  // 2. Return stock if this order deducted inventory
+  if (order && order.stockUsage && order.stockUsage.stockId && Number(order.stockUsage.quantity) > 0) {
     const stockItem = (state.stock || []).find(s => s.id === order.stockUsage.stockId);
     if (stockItem) {
       stockItem.quantity = Number((stockItem.quantity + Number(order.stockUsage.quantity)).toFixed(2));
+      localStorage.setItem(STORAGE_KEYS.STOCK, JSON.stringify(state.stock));
     }
   }
 
-    state.orders = state.orders.filter(o => o.id !== orderId);
-    saveDataToStorage();
-    renderDashboard();
-    renderOrdersList();
-    renderPnL();
-    renderPartiesList();
-    checkUrgentDeliveries();
+  // 3. Remove from local state
+  state.orders = state.orders.filter(o => o.id !== targetId);
+  saveDataToStorage();
 
-    // Real-time broadcast deletion
-    broadcastSyncEvent('DELETE_ORDER', { orderId: orderId });
-  }
+  // 4. Close any open modals
+  closeDeleteConfirmModal();
+  closeOrderModal();
+
+  // 5. Update UI everywhere
+  renderDashboard();
+  renderOrdersList();
+  renderPnL();
+  renderPartiesList();
+  checkUrgentDeliveries();
+  updatePendingBadges();
+
+  // 6. Show toast notification
+  flashSyncSuccess(state.lang === 'gu' ? `🗑️ ઓર્ડર #${orderNo} ડિલીટ થઈ ગયો છે.` : `Order #${orderNo} deleted.`);
+
+  // 7. Broadcast deletion to cloud sync with tombstone
+  broadcastSyncEvent('DELETE_ORDER', {
+    orderId: targetId,
+    deletedOrderIds: state.deletedOrderIds
+  });
 }
 
 function triggerCelebration() {
@@ -4397,6 +4551,15 @@ function updateSyncStatusUI(isConnected) {
   if (text) {
     text.innerText = label;
   }
+
+  const mobSync = document.getElementById('headerSyncBtnMob');
+  if (mobSync) {
+    if (isConnected) {
+      mobSync.className = 'w-9 h-9 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-400/40 flex items-center justify-center transition active:scale-95 shadow-xs';
+    } else {
+      mobSync.className = 'w-9 h-9 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-400/40 flex items-center justify-center transition active:scale-95 shadow-xs';
+    }
+  }
 }
 
 // ========================================================
@@ -4410,22 +4573,29 @@ function flashSyncSuccess(msg) {
   if (!toast) {
     toast = document.createElement('div');
     toast.id = 'liveSyncToast';
-    toast.className = 'fixed top-4 right-4 z-50 px-4 py-2.5 rounded-2xl bg-emerald-600/90 text-white font-bold text-xs sm:text-sm shadow-2xl backdrop-blur-md border border-emerald-400/40 flex items-center gap-2 transform transition-all duration-300 pointer-events-none opacity-0 -translate-y-4';
+    toast.className = 'fixed bottom-20 left-1/2 -translate-x-1/2 sm:top-4 sm:right-4 sm:bottom-auto sm:left-auto sm:translate-x-0 z-50 px-4 py-2 rounded-full bg-slate-900/95 text-emerald-300 font-bold text-xs sm:text-sm shadow-2xl backdrop-blur-md border border-emerald-500/50 flex items-center gap-2 transform transition-all duration-300 pointer-events-none opacity-0 translate-y-4 sm:-translate-y-4 max-w-[90vw] whitespace-nowrap';
     document.body.appendChild(toast);
   }
-  toast.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-white animate-ping"></span><span>${msg}</span>`;
-  toast.classList.remove('opacity-0', '-translate-y-4');
+  toast.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span><span>${msg}</span>`;
+  toast.classList.remove('opacity-0', 'translate-y-4', 'sm:-translate-y-4');
   toast.classList.add('opacity-100', 'translate-y-0');
   setTimeout(() => {
     toast.classList.remove('opacity-100', 'translate-y-0');
-    toast.classList.add('opacity-0', '-translate-y-4');
-  }, 3500);
+    toast.classList.add('opacity-0', 'translate-y-4', 'sm:-translate-y-4');
+  }, 3000);
 
   const syncBtn = document.getElementById('headerSyncBtn');
   if (syncBtn) {
     syncBtn.classList.add('ring-2', 'ring-emerald-400', 'scale-105');
     setTimeout(() => {
       syncBtn.classList.remove('ring-2', 'ring-emerald-400', 'scale-105');
+    }, 2000);
+  }
+  const syncBtnMob = document.getElementById('headerSyncBtnMob');
+  if (syncBtnMob) {
+    syncBtnMob.classList.add('ring-2', 'ring-emerald-400', 'scale-105');
+    setTimeout(() => {
+      syncBtnMob.classList.remove('ring-2', 'ring-emerald-400', 'scale-105');
     }, 2000);
   }
 }
@@ -4465,6 +4635,9 @@ function handleIncomingSyncEvent(evt) {
   switch (action) {
     case 'UPSERT_ORDER': {
       if (payload && payload.id) {
+        if (state.deletedOrderIds && state.deletedOrderIds.includes(payload.id)) {
+          break; // Never resurrect deleted order!
+        }
         const idx = state.orders.findIndex(o => o.id === payload.id);
         if (idx !== -1) {
           state.orders[idx] = { ...state.orders[idx], ...payload };
@@ -4505,6 +4678,17 @@ function handleIncomingSyncEvent(evt) {
     }
     case 'DELETE_ORDER': {
       if (payload && payload.orderId) {
+        if (!state.deletedOrderIds) state.deletedOrderIds = [];
+        if (!state.deletedOrderIds.includes(payload.orderId)) {
+          state.deletedOrderIds.push(payload.orderId);
+          localStorage.setItem(STORAGE_KEYS.DELETED_ORDERS, JSON.stringify(state.deletedOrderIds));
+        }
+        if (Array.isArray(payload.deletedOrderIds)) {
+          payload.deletedOrderIds.forEach(id => {
+            if (!state.deletedOrderIds.includes(id)) state.deletedOrderIds.push(id);
+          });
+          localStorage.setItem(STORAGE_KEYS.DELETED_ORDERS, JSON.stringify(state.deletedOrderIds));
+        }
         const idx = state.orders.findIndex(o => o.id === payload.orderId);
         if (idx !== -1) {
           state.orders.splice(idx, 1);
@@ -4560,10 +4744,28 @@ function handleIncomingSyncEvent(evt) {
     case 'FULL_STATE_BROADCAST': {
       if (payload && typeof payload === 'object') {
         let merged = false;
+
+        if (Array.isArray(payload.deletedOrderIds)) {
+          if (!state.deletedOrderIds) state.deletedOrderIds = [];
+          payload.deletedOrderIds.forEach(id => {
+            if (!state.deletedOrderIds.includes(id)) state.deletedOrderIds.push(id);
+          });
+          localStorage.setItem(STORAGE_KEYS.DELETED_ORDERS, JSON.stringify(state.deletedOrderIds));
+        }
+
+        if (state.deletedOrderIds && state.deletedOrderIds.length > 0) {
+          const origLen = state.orders.length;
+          state.orders = state.orders.filter(o => !state.deletedOrderIds.includes(o.id));
+          if (state.orders.length !== origLen) merged = true;
+        }
+
         if (Array.isArray(payload.orders) && payload.orders.length > 0) {
           const map = new Map();
           state.orders.forEach(o => map.set(o.id, o));
           payload.orders.forEach(o => {
+            if (state.deletedOrderIds && state.deletedOrderIds.includes(o.id)) {
+              return; // Do not re-add deleted order!
+            }
             if (!map.has(o.id)) {
               state.orders.unshift(o);
               map.set(o.id, o);
@@ -4700,7 +4902,8 @@ function pushToCloudStore(isBackground = false) {
       customers: state.customers,
       karigars: state.karigars,
       stock: state.stock,
-      settings: state.settings
+      settings: state.settings,
+      deletedOrderIds: state.deletedOrderIds || []
     });
   }, 400);
 }
@@ -5260,4 +5463,8 @@ function onOrderStockSelectChange() {
   if (item) {
     unitLabel.innerText = item.unit === 'meter' ? (state.lang === 'gu' ? 'મીટર' : 'm') : (state.lang === 'gu' ? 'નંગ' : 'pcs');
   }
+}
+
+function showToast(msg, type = 'info') {
+  flashSyncSuccess(msg);
 }
